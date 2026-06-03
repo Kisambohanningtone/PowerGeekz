@@ -576,3 +576,46 @@ a {
     width: 100%;
   }
 }
+/* ===== GLOBAL IMAGE + CONTENT RESPONSIVE FIX ===== */
+
+@media (max-width: 992px){
+
+    .about-grid,
+    .portfolio-grid,
+    .project-grid,
+    .content-grid,
+    .hero-grid,
+    .section-grid{
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    .about-image,
+    .portfolio-image,
+    .project-image,
+    .image-side,
+    .section-image{
+        display: block !important;
+        width: 100% !important;
+        order: -1;
+    }
+
+    .about-image img,
+    .portfolio-image img,
+    .project-image img,
+    .image-side img,
+    .section-image img{
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 20px;
+    }
+
+    .about-content,
+    .portfolio-content,
+    .project-content,
+    .section-content{
+        width: 100%;
+    }
+}
