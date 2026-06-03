@@ -683,3 +683,28 @@ footer{
         font-size: .9rem;
     }
 }
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.12);
+
+    /* ADD THESE */
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+}
+@media (max-width:768px){
+
+    input,
+    textarea,
+    select{
+        font-size:16px !important;
+    }
+
+}
