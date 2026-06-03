@@ -455,8 +455,7 @@ footer .container{position:relative;z-index:1}
 @media(max-width:1024px){
   .hero-content{grid-template-columns:1fr;padding-top:3rem}
   .hero-right{display:none}
-  .at-grid{grid-template-columns:1fr}.at-img-wrap{display:none}
-  .why-grid{grid-template-columns:repeat(2,1fr)}
+   .why-grid{grid-template-columns:repeat(2,1fr)}
   .srv-grid{grid-template-columns:repeat(2,1fr)}
   .stats-inner{grid-template-columns:repeat(2,1fr)}
   .pp-grid{grid-template-columns:repeat(2,1fr)}
@@ -464,6 +463,23 @@ footer .container{position:relative;z-index:1}
   .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
   .at-details{grid-template-columns:1fr}
 }
+  .at-grid{
+    grid-template-columns:1fr;
+    gap:2rem;
+}
+
+.at-img-wrap{
+    display:block;
+    width:100%;
+}
+
+.at-img-main{
+    width:100%;
+    height:auto;
+    max-height:500px;
+    object-fit:cover;
+}
+ 
 @media(max-width:768px){
   .nav-links,.nav-btn{display:none}
   .nav-hamburger{display:flex}
@@ -576,46 +592,31 @@ a {
     width: 100%;
   }
 }
-/* ===== GLOBAL IMAGE + CONTENT RESPONSIVE FIX ===== */
+/* ===== KEEP IMAGE VISIBLE ON MOBILE ===== */
 
-@media (max-width: 992px){
+@media (max-width: 1024px){
 
-    .about-grid,
-    .portfolio-grid,
-    .project-grid,
-    .content-grid,
-    .hero-grid,
-    .section-grid{
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 2rem;
+    .at-grid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:2rem;
     }
 
-    .about-image,
-    .portfolio-image,
-    .project-image,
-    .image-side,
-    .section-image{
-        display: block !important;
-        width: 100% !important;
-        order: -1;
+    .at-img-wrap{
+        display:block !important;
+        width:100%;
+        order:-1;
     }
 
-    .about-image img,
-    .portfolio-image img,
-    .project-image img,
-    .image-side img,
-    .section-image img{
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 20px;
+    .at-img-main{
+        width:100%;
+        height:auto;
+        max-height:450px;
+        object-fit:cover;
     }
 
-    .about-content,
-    .portfolio-content,
-    .project-content,
-    .section-content{
-        width: 100%;
+    .at-badge,
+    .at-badge2{
+        transform:scale(.8);
     }
 }
