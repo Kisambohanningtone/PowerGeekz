@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Powergeekz Engineering Ltd</title>
+  <meta name="description" content="Solar PV, UPS, inverters, generators, CCTV and ICT solutions by Powergeekz Engineering Ltd, Nairobi Kenya.">
+  <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='logo.jpeg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="{{ url_for('index') }}">
+      <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="Powergeekz Logo">
+      <span><span class="logo-power">POWER</span><span class="logo-geekz">GEEKZ</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('services') }}" class="active">Services</a></li>
+      <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('contact_page') }}">Contact</a></li>
+    </ul>
+    <a href="{{ url_for('contact_page') }}" class="nav-btn">Get a Quote</a>
+    <div class="nav-hamburger" id="hamburger" role="button" tabindex="0" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="navigation">
+  <a href="{{ url_for('index') }}">🏠 Home</a>
+  <a href="{{ url_for('services') }}">⚡ Services</a>
+  <a href="{{ url_for('portfolio') }}">📂 Portfolio</a>
+  <a href="{{ url_for('about') }}">🏢 About</a>
+  <a href="{{ url_for('contact_page') }}">📞 Contact</a>
+  <a href="{{ url_for('contact_page') }}" class="nav-btn">☀ Get a Free Quote</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="hero-bg">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span class="hero-dot"></span>What We Do</div>
+      <h1>Comprehensive<br><span class="h1-blue">Power Solutions</span></h1>
+      <p class="hero-sub">From solar panels on your rooftop to mission-critical UPS systems in hospital theatres — we design, install and maintain power solutions that never let you down.</p>
+      <div class="hero-actions">
+        <a href="{{ url_for('contact_page') }}" class="btn-blue">☀ Get Free Quote</a>
+        <a href="{{ url_for('portfolio') }}" class="btn-white">View Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOP TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-inner" id="tickerInner"></div>
+</div>
+
+<!-- SERVICES OVERVIEW -->
+<section class="services-intro">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:700px;margin:0 auto 4rem">
+      <div class="section-badge">Our Services</div>
+      <h2 class="section-title">Everything Your Power Needs Demand</h2>
+      <div class="divider" style="margin:1rem auto"></div>
+      <p class="section-sub" style="margin:0 auto">As authorized dealers for leading global brands, we supply, install, test, commission and maintain a full spectrum of power and technology solutions across Kenya and East Africa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES CARDS -->
+<section class="services-cards-section">
+  <div class="container">
+    <div class="services-grid">
+
+      <div class="service-card reveal d1">
+        <div class="service-card-num">01</div>
+        <div class="service-img-wrap">
+          <img src="{{ url_for('static', filename='img27.jpeg') }}" alt="Solar PV Systems" loading="lazy">
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-badge">☀</div>
+        </div>
+        <div class="service-body">
+          <h3>Solar PV Systems</h3>
+          <p>Supply, installation, testing, commissioning and maintenance of solar photovoltaic systems and solar water heating for residential, commercial and industrial use.</p>
+          <ul class="service-benefits">
+            <li>Grid-Tie, Off-Grid &amp; Hybrid systems</li>
+            <li>Solar water heating installation</li>
+            <li>Ongoing preventive maintenance</li>
+            <li>Borehole solarization</li>
+          </ul>
+          <div class="service-tags">
+            <span class="tag">Grid-Tie</span><span class="tag">Off-Grid</span><span class="tag">Hybrid</span><span class="tag">Water Heating</span>
+          </div>
+          <a href="{{ url_for('contact_page') }}" class="btn-blue service-btn">Request Installation →</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d2">
+        <div class="service-card-num">02</div>
+        <div class="service-img-wrap">
+          <img src="{{ url_for('static', filename='img8.jpeg') }}" alt="UPS Systems" loading="lazy">
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-badge">🔌</div>
+        </div>
+        <div class="service-body">
+          <h3>UPS Systems</h3>
+          <p>Full-range UPS solutions from 400VA to 1MVA from world-leading manufacturers. Protecting hospitals, data centres, banks and critical infrastructure 24/7.</p>
+          <ul class="service-benefits">
+            <li>400VA to 1MVA capacity range</li>
+            <li>Supply, installation &amp; commissioning</li>
+            <li>Repair &amp; preventive maintenance</li>
+            <li>Battery data centre replacements</li>
+          </ul>
+          <div class="service-tags">
+            <span class="tag">APC</span><span class="tag">EATON</span><span class="tag">MGE</span><span class="tag">GE</span><span class="tag">MECER</span><span class="tag">LEIBERT</span><span class="tag">INVT</span>
+          </div>
+          <a href="{{ url_for('contact_page') }}" class="btn-blue service-btn">Get Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d3">
+        <div class="service-card-num">03</div>
+        <div class="service-img-wrap">
+          <img src="{{ url_for('static', filename='img12.jpeg') }}" alt="Inverter Systems" loading="lazy">
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-badge">🔋</div>
+        </div>
+        <div class="service-body">
+          <h3>Inverter Charger Systems</h3>
+          <p>Supply, installation and maintenance of inverter charger systems for homes, offices and commercial facilities. Includes parallel inverter configurations for large loads.</p>
+          <ul class="service-benefits">
+            <li>Standalone and parallel configurations</li>
+            <li>5KVA to 15KVA+ systems</li>
+            <li>12-hour and extended backup</li>
+            <li>Testing and commissioning</li>
+          </ul>
+          <div class="service-tags">
+            <span class="tag">STUDER</span><span class="tag">TRIPLITTE</span><span class="tag">SUKAM</span><span class="tag">SCOTT</span>
+          </div>
+          <a href="{{ url_for('contact_page') }}" class="btn-blue service-btn">Get Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d1">
+        <div class="service-card-num">04</div>
+        <div class="service-img-wrap">
+          <img src="{{ url_for('static', filename='img11.jpeg') }}" alt="Generators" loading="lazy">
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-badge">⚙</div>
+        </div>
+        <div class="service-body">
+          <h3>Generators &amp; AVR's</h3>
+          <p>Supply, installation, commissioning and preventive maintenance of diesel and gas generators. Automatic voltage regulators to protect equipment from fluctuations.</p>
+          <ul class="service-benefits">
+            <li>Diesel and gas generators</li>
+            <li>Automatic Voltage Regulators</li>
+            <li>Installation and commissioning</li>
+            <li>Ongoing maintenance contracts</li>
+          </ul>
+          <div class="service-tags">
+            <span class="tag">Generators</span><span class="tag">AVR's</span><span class="tag">Stabilizers</span>
+          </div>
+          <a href="{{ url_for('contact_page') }}" class="btn-blue service-btn">Get Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d2">
+        <div class="service-card-num">05</div>
+        <div class="service-img-wrap">
+          <img src="{{ url_for('static', filename='pic9.jpeg') }}" alt="Batteries" loading="lazy">
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-badge">⚡</div>
+        </div>
+        <div class="service-body">
+          <h3>UPS &amp; Inverter Batteries</h3>
+          <p>Supply and installation of maintenance-free batteries ranging from 12V 4.5Ah to 48V 760Ah. Complete battery replacement services for all brands and configurations.</p>
+          <ul class="service-benefits">
+            <li>12V to 48V range</li>
+            <li>4.5Ah to 760Ah capacity</li>
+            <li>AGM, GEL and Lithium options</li>
+            <li>All brands supported</li>
+          </ul>
+          <div class="service-tags">
+            <span class="tag">12V–48V</span><span class="tag">4.5Ah–760Ah</span><span class="tag">AGM/GEL</span><span class="tag">Lithium</span>
+          </div>
+          <a href="{{ url_for('contact_page') }}" class="btn-blue service-btn">Get Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d3">
+        <div class="service-card-num">06</div>
+        <div class="service-img-wrap">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="CCTV and ICT" loading="lazy">
+          <div class="service-img-overlay"></div>
+          <div class="service-icon-badge">📷</div>
+        </div>
+        <div class="service-body">
+          <h3>CCTV, Data Cables &amp; ICT</h3>
+          <p>Professional CCTV installation, structured data cabling and ICT supply including computers, laptops, printers, tablets and accessories for businesses and institutions.</p>
+          <ul class="service-benefits">
+            <li>CCTV design and installation</li>
+            <li>Structured data cabling</li>
+            <li>Computer and laptop supply</li>
+            <li>Printers, projectors and accessories</li>
+          </ul>
+          <div class="service-tags">
+            <span class="tag">CCTV</span><span class="tag">Data Cables</span><span class="tag">Computers</span><span class="tag">Printers</span>
+          </div>
+          <a href="{{ url_for('contact_page') }}" class="btn-blue service-btn">Get Quote →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section class="process-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:620px;margin:0 auto 4rem">
+      <div class="section-badge">How We Work</div>
+      <h2 class="section-title">Our Project Process</h2>
+      <div class="divider" style="margin:1rem auto"></div>
+      <p class="section-sub" style="margin:0 auto">Every project follows our proven 4-step delivery process to ensure quality, reliability and your complete satisfaction.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal d1">
+        <div class="process-num">01</div>
+        <div class="process-icon">🔍</div>
+        <h4>Site Assessment</h4>
+        <p>We visit your site, assess your power needs and evaluate the best solution for your budget and requirements — completely free.</p>
+      </div>
+      <div class="process-connector reveal d1" aria-hidden="true"></div>
+      <div class="process-step reveal d2">
+        <div class="process-num">02</div>
+        <div class="process-icon">📐</div>
+        <h4>System Design</h4>
+        <p>Our engineers design a custom system, select the right equipment and prepare a detailed technical proposal tailored to your needs.</p>
+      </div>
+      <div class="process-connector reveal d2" aria-hidden="true"></div>
+      <div class="process-step reveal d3">
+        <div class="process-num">03</div>
+        <div class="process-icon">🔧</div>
+        <h4>Installation</h4>
+        <p>Professional installation by certified technicians, followed by thorough testing and commissioning to the highest standards.</p>
+      </div>
+      <div class="process-connector reveal d3" aria-hidden="true"></div>
+      <div class="process-step reveal d4">
+        <div class="process-num">04</div>
+        <div class="process-icon">📞</div>
+        <h4>Ongoing Support</h4>
+        <p>Preventive maintenance contracts, 24/7 support and rapid response for any issues post-installation — we're always there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHORIZED BRANDS -->
+<section class="brands-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 3rem">
+      <div class="section-badge">Our Partners</div>
+      <h2 class="section-title">Authorized Brand Partners</h2>
+      <div class="divider" style="margin:1rem auto"></div>
+      <p class="section-sub" style="margin:0 auto">We are authorized dealers for the world's most trusted power equipment manufacturers — guaranteeing genuine products and full warranties.</p>
+    </div>
+    <div class="brands-grid reveal d1">
+      <div class="brand-chip">APC</div>
+      <div class="brand-chip">EATON</div>
+      <div class="brand-chip">MGE</div>
+      <div class="brand-chip">MECER</div>
+      <div class="brand-chip">STUDER</div>
+      <div class="brand-chip">LEIBERT</div>
+      <div class="brand-chip">INVT</div>
+      <div class="brand-chip">SUKAM</div>
+      <div class="brand-chip">SCOTT</div>
+      <div class="brand-chip">GE</div>
+      <div class="brand-chip">TRIPLITTE</div>
+      <div class="brand-chip">XANTREX</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:620px;margin:0 auto 3rem">
+      <div class="section-badge">Why Powergeekz</div>
+      <h2 class="section-title">Built on Trust, Powered by Expertise</h2>
+      <div class="divider" style="margin:1rem auto"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal d1">
+        <div class="why-icon">🏆</div>
+        <h3>Authorized Dealers</h3>
+        <p>Official dealers for APC, EATON, MGE, MECER, STUDER, LEIBERT, INVT and more — genuine equipment and full warranties guaranteed.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-icon">⚙</div>
+        <h3>Full Turnkey Projects</h3>
+        <p>From consultation and design to supply, installation, testing, commissioning and ongoing maintenance — one trusted partner.</p>
+      </div>
+      <div class="why-card reveal d3">
+        <div class="why-icon">☀</div>
+        <h3>Solar Specialists</h3>
+        <p>Deep expertise in solar PV from small residential setups to large commercial and borehole solarization projects.</p>
+      </div>
+      <div class="why-card reveal d4">
+        <div class="why-icon">📞</div>
+        <h3>After-Sales Support</h3>
+        <p>Preventive maintenance contracts, rapid response and 24-hour support for all installed systems — always there when you need us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section class="featured-projects">
+  <div class="container">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:3rem">
+      <div>
+        <div class="section-badge">Our Work</div>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="divider"></div>
+      </div>
+      <a href="{{ url_for('portfolio') }}" class="btn-white">All Projects →</a>
+    </div>
+    <div class="fp-grid">
+      <div class="fp-card reveal d1">
+        <div class="fp-img-wrap"><img src="{{ url_for('static', filename='pic5.jpeg') }}" alt="Gertrude's Hospital" loading="lazy"><span class="fp-cat">UPS · Maintenance</span></div>
+        <div class="fp-body"><h4>Gertrude's Children's Hospital</h4><p>4-year maintenance contract across 15+ satellite clinics. UPS and parallel inverter systems nationwide.</p><div class="fp-meta"><span>📍 15+ Locations</span><span>⚡ Up to 15KVA</span><span>🏥 Healthcare</span></div></div>
+      </div>
+      <div class="fp-card reveal d2">
+        <div class="fp-img-wrap"><img src="{{ url_for('static', filename='img20.jpeg') }}" alt="Basco Paints Solar" loading="lazy"><span class="fp-cat">Solar · Inverter</span></div>
+        <div class="fp-body"><h4>Basco Paints — Solar &amp; Inverter</h4><p>Complete solar and inverter installation for Kenya's leading paint manufacturer, significantly reducing energy costs.</p><div class="fp-meta"><span>📍 Nairobi</span><span>☀ Solar+Inverter</span><span>🏭 Manufacturing</span></div></div>
+      </div>
+      <div class="fp-card reveal d3">
+        <div class="fp-img-wrap"><img src="{{ url_for('static', filename='img18.jpeg') }}" alt="Karen Hospital" loading="lazy"><span class="fp-cat">UPS · Repair</span></div>
+        <div class="fp-body"><h4>Karen Hospital</h4><p>Supply of 10KVA UPS units plus major repairs of 80KVA, 30KVA and 100KVA systems with ongoing maintenance.</p><div class="fp-meta"><span>📍 Karen</span><span>⚡ 100KVA</span><span>🏥 Healthcare</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats-band">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-block reveal d1"><span class="stat-num" data-target="12" data-suffix="+">0</span><span class="stat-lbl">Years in Business</span></div>
+      <div class="stat-block reveal d2"><span class="stat-num" data-target="500" data-suffix="+">0</span><span class="stat-lbl">Installations Completed</span></div>
+      <div class="stat-block reveal d3"><span class="stat-num" data-target="200" data-suffix="+">0</span><span class="stat-lbl">Satisfied Clients</span></div>
+      <div class="stat-block reveal d4"><span class="stat-num" data-target="47" data-suffix="+">0</span><span class="stat-lbl">Hospital &amp; Clinic Sites</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-badge" style="margin:0 auto 1.2rem">Ready to Start?</div>
+      <h2>Get a Free Site Assessment <span>Today</span></h2>
+      <p>Our engineers will visit your premises, assess your exact power requirements and design a system tailored to your budget — completely free.</p>
+      <div class="cta-actions">
+        <a href="{{ url_for('contact_page') }}" class="btn-blue">☀ Request Free Quote</a>
+        <a href="tel:+254723233209" class="btn-white">📞 Call Us Now</a>
+        <a href="https://wa.me/254723233209" target="_blank" rel="noopener" class="btn-black">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp
+        </a>
+      </div>
+      <div class="cta-contacts">
+        <a href="mailto:info@powergeekzengineeringltd.co.ke">✉ info@powergeekzengineeringltd.co.ke</a>
+        <a href="tel:+254723233209">📞 +254 723 233 209</a>
+        <a href="https://maps.google.com/?q=Ruaka,Nairobi" target="_blank" rel="noopener">📍 Limuru Road, Ruaka, Nairobi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fb-logo"><img src="{{ url_for('static', filename='logo.jpeg') }}" alt="Powergeekz Logo"><span class="fb-logo-text"><span class="fb-lp">POWER</span><span class="fb-lg">GEEKZ</span></span></div>
+        <p>Leading provider of solar PV systems, UPS, inverters and power backup solutions in Kenya and East Africa. Engineering excellence since 2013.</p>
+        <div class="f-reg"><strong>Reg:</strong> CPR/2013/103782 &nbsp;·&nbsp; <strong>VAT:</strong> P051424698Q<br><strong>Bank:</strong> Co-op Bank Ruaka &nbsp;·&nbsp; <strong>A/C:</strong> 01148395621000</div>
+        <div class="f-socials">
+          <a href="https://www.facebook.com/share/18s5vZ64YR/" target="_blank" rel="noopener" class="f-soc fb" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.tiktok.com/@powergeekzengineeringltd" target="_blank" rel="noopener" class="f-soc tt" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="https://wa.me/254723233209" target="_blank" rel="noopener" class="f-soc wa" title="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="mailto:info@powergeekzengineeringltd.co.ke" class="f-soc em" title="Email"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></a>
+          <a href="tel:+254723233209" class="f-soc ph" title="Call"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.2 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="{{ url_for('index') }}">Home</a></li><li><a href="{{ url_for('about') }}">About Us</a></li><li><a href="{{ url_for('about') }}#team">Our Team</a></li><li><a href="{{ url_for('portfolio') }}">Projects</a></li><li><a href="{{ url_for('contact_page') }}">Careers</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="{{ url_for('services') }}">Solar PV Systems</a></li><li><a href="{{ url_for('services') }}">UPS &amp; Inverters</a></li><li><a href="{{ url_for('services') }}">Generators &amp; AVR</a></li><li><a href="{{ url_for('services') }}">Batteries</a></li><li><a href="{{ url_for('services') }}">CCTV &amp; ICT</a></li><li><a href="{{ url_for('services') }}">Maintenance</a></li></ul></div>
+      <div class="footer-col"><h4>Portfolio</h4><ul><li><a href="{{ url_for('portfolio') }}">All Projects</a></li><li><a href="{{ url_for('portfolio') }}">Solar Projects</a></li><li><a href="{{ url_for('portfolio') }}">UPS Projects</a></li><li><a href="{{ url_for('portfolio') }}">Hospital Work</a></li><li><a href="{{ url_for('portfolio') }}">ICT Supply</a></li></ul></div>
+      <div class="footer-col"><h4>Contact Us</h4><ul><li><a href="#">📍 Limuru Rd, Ruaka, Nairobi</a></li><li><a href="#">P.O. Box 12168-00100</a></li><li><a href="tel:+254723233209">📞 +254 723 233 209</a></li><li><a href="tel:+254101233209">📞 +254 101 233 209</a></li><li><a href="mailto:powergeekzengineeringltd@gmail.com">✉ powergeekzengineeringltd@gmail.com</a></li><li><a href="https://maps.google.com/?q=Ruaka,Nairobi" target="_blank" rel="noopener">🗺 Get Directions</a></li></ul><div class="footer-hours">🕐 Mon–Fri 8am–5:30pm · Sat 9am–1pm</div></div>
+    </div>
+  </div>
+  <div class="footer-ticker">
+    <div class="ft-lbl">Our Valued Clients &amp; Partners</div>
+    <div class="ft-track" id="ftTrack"></div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 Powergeekz Engineering Ltd. All rights reserved.</span>
+      <div class="fb-links"><a href="{{ url_for('contact_page') }}">Privacy Policy</a><a href="{{ url_for('contact_page') }}">Terms of Service</a><span>Built with ☀ for a greener Kenya</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var CLIENTS=["Gertrude's Children's Hospital","Karen Hospital","ABC the Bank","Bird Life International","Basco Paints","Media Max Networks","Ministry of Agriculture","PAL Network","Musoni Kenya Ltd","Jlianco Kenya","Leonardo Company","Mother Mercy Children's Home","Consolata Fathers","Co-operative Bank of Kenya"];
+  var TICKER_CONTENT=["Professional Solar Installations","Trusted UPS Solutions","Customer Satisfaction First","Innovation in Power","Excellence in Engineering","Contact Us Today","Authorized Dealers","Genuine Products","24hr Support","12+ Years Experience"];
+
+  /* NAVBAR */
+  var nav=document.getElementById('navbar');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+
+  /* HAMBURGER */
+  var hbg=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu'),open=false;
+  function openMenu(){open=true;hbg.classList.add('open');mm.classList.add('open');document.body.style.overflow='hidden';}
+  function closeMenu(){open=false;hbg.classList.remove('open');mm.classList.remove('open');document.body.style.overflow='';}
+  hbg.addEventListener('click',function(){open?closeMenu():openMenu();});
+  hbg.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open?closeMenu():openMenu();}});
+  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+  document.addEventListener('click',function(e){if(open&&!mm.contains(e.target)&&!hbg.contains(e.target)){closeMenu();}});
+
+  /* HERO SLIDESHOW */
+  var slides=document.querySelectorAll('.hero-slide'),cur=0;
+  setInterval(function(){slides[cur].classList.remove('active');cur=(cur+1)%slides.length;slides[cur].classList.add('active');},5500);
+
+  /* TOP TICKER */
+  var ti=document.getElementById('tickerInner');
+  if(ti){var td=TICKER_CONTENT.concat(TICKER_CONTENT);ti.innerHTML=td.map(function(t){return'<span class="ticker-item">'+t+'<span class="ticker-star">✦</span></span>';}).join('');}
+
+  /* FOOTER TICKER */
+  var ft=document.getElementById('ftTrack');
+  if(ft){var fd=CLIENTS.concat(CLIENTS);ft.innerHTML=fd.map(function(c){return'<div class="ft-item"><span class="ft-dot"></span>'+c+'</div>';}).join('');}
+
+  /* STAT COUNTERS */
+  document.querySelectorAll('.stat-num[data-target]').forEach(function(el){
+    var target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'+',done=false;
+    var obs=new IntersectionObserver(function(entries){if(entries[0].isIntersecting&&!done){done=true;var s=0,step=Math.ceil(target/60);var t=setInterval(function(){s+=step;if(s>=target){s=target;clearInterval(t);}el.textContent=s+suffix;},30);}},{threshold:.5});
+    obs.observe(el);
+  });
+
+  /* SCROLL REVEAL */
+  var revEls=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -20px 0px'});
+    revEls.forEach(function(el){obs.observe(el);});
+  }else{revEls.forEach(function(el){el.classList.add('visible');});}
+})();
+</script>
+</body>
+</html>
