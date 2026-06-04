@@ -8,8 +8,8 @@
   <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='logo.jpeg') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
 
 </head>
 <body>
@@ -31,7 +31,7 @@
       <li><a href="{{ url_for('about') }}">About</a></li>
       <li><a href="{{ url_for('contact') }}" class="active">Contact</a></li>
     </ul>
-    <a href="{{ url_for('contact') }}" class="nav-btn">Get a Quote</a>
+    <a href="{{ url_for('contact') }}" class="nav-btn"></a>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -186,7 +186,7 @@
             </div>
 
             <div class="form-group">
-              <label for="service">Service Required <span class="req">*</span></label>
+              <label for="service">Service <span class="req">*</span></label>
               <div class="select-wrap">
                 <select id="service" name="service" required>
                   <option value="" disabled selected>— Select a service —</option>

@@ -31,7 +31,10 @@ body{
   radial-gradient(circle at bottom right,#0066ff22,transparent 35%),
   #050505;
   color:#fff;
-  overflow-x:hidden;
+}
+.container{
+    width:min(1200px,92%);
+    margin:auto;
 }
 
 /* =====================================
@@ -177,7 +180,10 @@ img{
   gap:20px;
   flex-wrap:wrap;
 }
-
+.hero-content{
+    width:100%;
+    min-width:0;
+}
 /* =====================================
    BUTTONS
 ===================================== */
@@ -460,6 +466,9 @@ textarea{
   padding:20px;
   border-radius:20px;
 }
+.map-overlay-card{
+  max-width:calc(100% - 60px);
+}
 
 /* =====================================
    FAQ
@@ -537,7 +546,11 @@ footer{
 
 .footer-top{
   display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns:minmax(0,2fr)
+                        minmax(0,1fr)
+                        minmax(0,1fr)
+                        minmax(0,1fr)
+                        minmax(0,1fr);
   gap:40px;
 }
 
@@ -574,10 +587,11 @@ footer{
 }
 
 .ft-track{
-  display:flex;
-  gap:40px;
-  white-space:nowrap;
-  animation:ticker 35s linear infinite;
+    display:flex;
+    width:max-content;
+    white-space:nowrap;
+    gap:40px;
+    animation:ticker 35s linear infinite;
 }
 
 /* =====================================
@@ -707,4 +721,233 @@ footer{
         font-size:16px !important;
     }
 
+}
+/* ===== FOOTER BRAND ===== */
+
+.footer-brand p{
+    color:#b7c4e0;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.f-reg{
+    color:#8e9ab7;
+    line-height:1.8;
+    margin:25px 0;
+    font-size:.92rem;
+}
+
+/* ===== SOCIALS ===== */
+
+.f-socials{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+.f-socials{
+    width:100%;
+    flex-wrap:wrap;
+}
+
+.f-soc{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+
+    transition:.3s ease;
+}
+
+.f-soc:hover{
+    background:#0066ff;
+    border-color:#0066ff;
+    transform:translateY(-4px);
+}
+
+/* ===== HEADINGS ===== */
+
+.footer-col h4{
+    color:#fff;
+    font-size:1rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+
+    padding-bottom:12px;
+    margin-bottom:22px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.footer-col ul li a{
+    color:#b7c4e0;
+    transition:.3s;
+}
+
+.footer-col ul li a:hover{
+    color:#0066ff;
+    padding-left:6px;
+}
+
+/* ===== HOURS BADGE ===== */
+
+.footer-hours{
+    margin-top:20px;
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    background:rgba(0,102,255,.15);
+    border:1px solid rgba(0,102,255,.25);
+
+    color:#d9e6ff;
+    font-size:.9rem;
+    font-weight:600;
+}
+
+/* ===== FOOTER LINKS ===== */
+
+.fb-links{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+.fb-links a{
+    color:#9fb3d8;
+}
+
+.fb-links a:hover{
+    color:#0066ff;
+}
+.fb-links{
+    width:100%;
+    flex-wrap:wrap;
+    row-gap:10px;
+}
+
+/* ===== TICKER LABEL ===== */
+
+.ft-lbl{
+    text-align:center;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:15px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+}
+
+/* ===== FOOTER IMPROVEMENT ===== */
+
+footer{
+    background:#040816;
+    position:relative;
+    overflow:hidden;
+}
+
+footer::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background-image:
+    radial-gradient(rgba(0,102,255,.20) 1px, transparent 1px);
+
+    background-size:30px 30px;
+    opacity:.25;
+}
+footer::before{
+    pointer-events:none;
+}
+/* =====================================
+   OVERFLOW FIXES
+===================================== */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+img,
+video,
+iframe{
+    max-width:100%;
+    height:auto;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* Prevent grids from overflowing */
+.contact-grid,
+.footer-top,
+.info-grid,
+.form-row,
+.hero-content,
+.cta-actions{
+    min-width:0;
+}
+
+/* Long text breaking */
+p,
+a,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    overflow-wrap:break-word;
+    word-wrap:break-word;
+}
+.footer-col,
+.sidebar-card,
+.form-glass,
+.team-card,
+.info-card{
+    min-width:0;
+}
+
+/* Buttons */
+.btn-blue,
+.btn-white,
+.btn-black,
+.btn-whatsapp{
+    max-width:100%;
+}
+
+/* Footer links */
+.fb-links{
+    flex-wrap:wrap;
+}
+
+/* Ticker safety */
+.footer-ticker,
+.ft-track{
+    max-width:100%;
+    overflow:hidden;
 }
