@@ -349,24 +349,50 @@ body::after {
   align-items: center;
   padding: 7rem 0 4rem;
   overflow: hidden;
-}
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("../hero3.jpg");
 
-/* Slideshow BG */
-.hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-slide {
-  position: absolute; inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-.hero-slide.active { opacity: 1; }
-.hero-slide:nth-child(1) { background: linear-gradient(135deg, #040811 0%, #0a1628 40%, #0d2050 100%); }
-.hero-slide:nth-child(2) { background: linear-gradient(135deg, #050d20 0%, #0a1f44 50%, #0b1840 100%); }
-.hero-slide:nth-child(3) { background: linear-gradient(135deg, #020810 0%, #0d1a30 50%, #142050 100%); }
-.hero-slide:nth-child(4) { background: linear-gradient(135deg, #040c18 0%, #091828 50%, #0e2044 100%); }
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* optional: parallax feel — remove if you want static */
 
-/* Grid overlay */
+   background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("../hero2.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* optional: parallax feel — remove if you want static */
+}
+
+
+
+.hero-slide:nth-child(1){
+    background-image:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("../hero3.jpg");
+}
+
+.hero-slide:nth-child(2){
+    background-image:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("../hero4.jpg");
+}
+
+.hero-slide:nth-child(3){
+    background-image:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("../hero5.jpg");
+}
+
+.hero-slide:nth-child(4){
+    background-image:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("../hero2.jpg");
+}
 .hero::before {
   content: '';
   position: absolute; inset: 0;
@@ -451,7 +477,6 @@ body::after {
 .trust-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.2); }
 
 .hero-stats { display: flex; align-items: center; gap: 2rem; }
-.hero-stat {}
 .hs-num {
   font-size: 2rem;
   font-weight: 900;
@@ -465,7 +490,6 @@ body::after {
 .hs-div { width: 1px; height: 36px; background: rgba(255,255,255,0.12); }
 
 /* Right – Hero Card */
-.hero-right {}
 .hero-card {
   background: rgba(255,255,255,0.04);
   backdrop-filter: blur(30px) saturate(200%);
