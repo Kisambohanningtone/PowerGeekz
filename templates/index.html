@@ -23,10 +23,11 @@
       <li><a href="{{ url_for('index') }}" class="active">Home</a></li>
       <li><a href="{{ url_for('services') }}">Services</a></li>
       <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+      <li><a href="{{ url_for('documentaries') }}">Documentaries</a></li>
       <li><a href="{{ url_for('about') }}">About</a></li>
-      <li><a href="{{ url_for('contact_page') }}">Contact</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
     </ul>
-    <a href="{{ url_for('contact_page') }}" class="nav-btn">Get a Quote</a>
+    <a href="{{ url_for('contact') }}" class="nav-btn">Get a Quote</a>
     <div class="nav-hamburger" id="hamburger" role="button" tabindex="0" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </div>
@@ -36,9 +37,9 @@
   <a href="{{ url_for('index') }}">🏠 Home</a>
   <a href="{{ url_for('services') }}">⚡ Services</a>
   <a href="{{ url_for('portfolio') }}">📂 Portfolio</a>
+  <a href="{{ url_for('documentaries') }}">🎬 Documentaries</a>
   <a href="{{ url_for('about') }}">🏢 About</a>
-  <a href="{{ url_for('contact_page') }}">📞 Contact</a>
-  <a href="{{ url_for('contact_page') }}" class="nav-btn">☀ Get a Free Quote</a>
+  <a href="{{ url_for('contact') }}">📞 Contact</a>
 </div>
 
 <!-- HERO -->
@@ -61,7 +62,7 @@
         </h1>
         <p class="hero-sub">East Africa's trusted provider of solar PV systems, UPS, inverters &amp; power backup solutions — serving hospitals, banks, schools and homes with world-class technology.</p>
         <div class="hero-actions">
-          <a href="{{ url_for('contact_page') }}" class="btn-blue">☀ Get Free Quote</a>
+          <a href="{{ url_for('contact') }}" class="btn-blue">☀ Get Free Quote</a>
           <a href="{{ url_for('portfolio') }}" class="btn-white">View Our Projects</a>
         </div>
         <div class="hero-trust">
@@ -89,7 +90,7 @@
           <div class="service-pill"><div class="pill-icon">💻</div>ICT &amp; Computer Supplies</div>
           <div class="hero-cta-card">
             <p class="hcta-txt">Free site assessment &amp; quote within 24 hours</p>
-            <a href="{{ url_for('services') }}" class="btn-blue" style="width:100%;justify-content:center">Explore All Services →</a>
+            <a href="{{ url_for('documentaries') }}" class="btn-blue" style="width:100%;justify-content:center">Explore All Services →</a>
           </div>
         </div>
       </div>
@@ -140,7 +141,7 @@
         </div>
         <div class="at-actions">
           <a href="{{ url_for('about') }}" class="btn-blue">Learn More About Us</a>
-          <a href="{{ url_for('contact_page') }}" class="btn-white">Get In Touch</a>
+          <a href="{{ url_for('contact') }}" class="btn-white">Get In Touch</a>
         </div>
       </div>
     </div>
@@ -336,7 +337,7 @@
   <div class="container">
     <div class="footer-bottom">
       <span>© 2025 Powergeekz Engineering Ltd. All rights reserved.</span>
-      <div class="fb-links"><a href="{{ url_for('contact_page') }}">Privacy Policy</a><a href="{{ url_for('contact_page') }}">Terms of Service</a><span>Built with ☀ for a greener Kenya</span></div>
+      <div class="fb-links"><a href="{{ url_for('contact') }}">Privacy Policy</a><a href="{{ url_for('contact') }}">Terms of Service</a><span>Built with ☀ for a greener Kenya</span></div>
     </div>
   </div>
 </footer>

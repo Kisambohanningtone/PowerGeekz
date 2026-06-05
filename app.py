@@ -94,10 +94,14 @@ def about():
 def contact_page():
     return render_template("contact.html")
 
+@app.route("/documentaries")
+def documentaries():
+    return render_template("documentaries.html")
+
 
 # ══════════════════════════════════════════════════════════════════
 #  CONTACT FORM  —  POST /contact
-# ══════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════
 
 @app.route("/contact", methods=["POST"])
 def contact():

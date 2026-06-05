@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
@@ -23,6 +24,7 @@
       <li><a href="{{ url_for('index') }}">Home</a></li>
       <li><a href="{{ url_for('services') }}">Services</a></li>
       <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+      <li><a href="{{ url_for('documentaries') }}">Documentaries</a></li>
       <li><a href="{{ url_for('about') }}" class="active">About</a></li>
       <li><a href="{{ url_for('contact') }}">Contact</a></li>
     </ul>
@@ -38,9 +40,9 @@
     <a href="{{ url_for('index') }}">🏠 Home</a>
     <a href="{{ url_for('services') }}">⚡ Services</a>
     <a href="{{ url_for('portfolio') }}">📂 Portfolio</a>
+    <a href="{{ url_for('documentaries') }}">🎬 Documentaries</a>
     <a href="{{ url_for('about') }}">🏢 About</a>
     <a href="{{ url_for('contact') }}">📞 Contact</a>
-    <a href="{{ url_for('contact') }}" class="mm-cta">☀ Get a Free Quote</a>
   </div>
 </div>
 
@@ -126,7 +128,7 @@
 
       <div class="story-content reveal" data-delay="2">
         <span class="section-label">Who We Are</span>
-        <h2>Kenya's Leading<br><span class="blue">Power Solutions Provider</span></h2>
+        <h2>Kenya's Leading<br><span class="blue">green Energy Power Solutions Provider</span></h2>
         <div class="divider"></div>
         <p><strong>Powergeekz Engineering Ltd</strong> is a leading provider of power backup and power protection systems across the region. Based in Nairobi since 2013, we have the expertise to take a client's basic requirements and convert them into systems that meet or exceed expectations.</p>
         <p>We are authorized dealers for most of the equipment we supply, enabling us to guarantee quality, genuine products and full manufacturer warranty support on everything we install.</p>

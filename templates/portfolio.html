@@ -6,484 +6,765 @@
   <title>Portfolio — Powergeekz Engineering Ltd</title>
   <meta name="description" content="Explore completed solar, UPS, inverter and power projects by Powergeekz Engineering Ltd across Kenya.">
   <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='logo.jpeg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/portfolio.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ░░ NAVBAR ░░ -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a class="nav-logo" href="{{ url_for('index') }}">
-      <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="Project Image">
-      <span><span class="logo-power">POWER</span><span class="logo-geekz">GEEKZ</span></span>
+      <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="Powergeekz Logo">
+      <span><span class="logo-p">POWER</span><span class="logo-g">GEEKZ</span></span>
     </a>
     <ul class="nav-links">
       <li><a href="{{ url_for('index') }}">Home</a></li>
       <li><a href="{{ url_for('services') }}">Services</a></li>
+      <li><a href="{{ url_for('documentaries') }}">Documentaries</a></li>
       <li><a href="{{ url_for('portfolio') }}" class="active">Portfolio</a></li>
       <li><a href="{{ url_for('about') }}">About</a></li>
       <li><a href="{{ url_for('contact') }}">Contact</a></li>
     </ul>
-    <a href="{{ url_for('contact') }}" class="btn-primary nav-cta">Get a Quote</a>
-    <div class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <a href="{{ url_for('contact') }}" class="nav-cta">Get a Quote</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu" role="navigation" aria-hidden="true">
+
+<!-- mobile drawer -->
+<div class="mobile-menu" id="mobileMenu">
   <a href="{{ url_for('index') }}">🏠 Home</a>
   <a href="{{ url_for('services') }}">⚡ Services</a>
+  <a href="{{ url_for('documentaries') }}">🎬 Documentaries</a>
   <a href="{{ url_for('portfolio') }}">📂 Portfolio</a>
   <a href="{{ url_for('about') }}">🏢 About</a>
   <a href="{{ url_for('contact') }}">📞 Contact</a>
-  <a href="{{ url_for('contact') }}" class="mm-cta">☀ Get a Free Quote</a>
 </div>
+<div class="menu-overlay" id="menuOverlay"></div>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-grid-lines"></div>
+<!-- ░░ HERO ░░ -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-grid"></div>
   <div class="container">
     <div class="hero-content">
-      <span class="hero-label">Our Work</span>
-      <h1>Projects That<br><span class="accent">Define Excellence</span></h1>
-      <div class="divider"></div>
-      <p>From Gertrude's Children's Hospital to ABC Bank, from media houses to schools — a track record built on quality, reliability and trust across Kenya.</p>
+      <div class="hero-pill">
+        <span class="pill-dot"></span>Our Work
+      </div>
+      <h1>Projects That<br><span class="hero-accent">Define Excellence</span></h1>
+      <p class="hero-sub">From Gertrude's Children's Hospital to ABC Bank — a track record built on quality, reliability and trust across Kenya and East Africa.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong class="count" data-target="500">0</strong><span>+</span><small>Projects</small></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><strong class="count" data-target="200">0</strong><span>+</span><small>Clients</small></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><strong class="count" data-target="47">0</strong><span>+</span><small>Hospital Sites</small></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><strong class="count" data-target="12">0</strong><span>+</span><small>Years</small></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="clients-ticker">
-  <div class="ticker-wrap">
-    <div class="ticker-track" id="tickerTrack"></div>
-  </div>
+<!-- ░░ TICKER ░░ -->
+<div class="ticker-bar">
+  <div class="ticker-track" id="tickerTrack"></div>
 </div>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
+<!-- ░░ PROJECTS SECTION ░░ -->
+<section class="projects-section">
   <div class="container">
-    <div class="stats-inner">
-      <div class="stat-item reveal"><span class="stat-num" data-target="500">0</span><span class="stat-plus">+</span><span class="stat-lbl">Projects Completed</span></div>
-      <div class="stat-item reveal" data-delay="1"><span class="stat-num" data-target="200">0</span><span class="stat-plus">+</span><span class="stat-lbl">Satisfied Clients</span></div>
-      <div class="stat-item reveal" data-delay="2"><span class="stat-num" data-target="47">0</span><span class="stat-plus">+</span><span class="stat-lbl">Clinic &amp; Hospital Sites</span></div>
-      <div class="stat-item reveal" data-delay="3"><span class="stat-num" data-target="12">0</span><span class="stat-plus">+</span><span class="stat-lbl">Years of Delivery</span></div>
-    </div>
-  </div>
-</div>
 
-<!-- FILTER + SEARCH -->
-<section class="projects-section section-pad">
-  <div class="container">
-    <div class="filter-bar reveal">
+    <!-- filter + search -->
+    <div class="filter-row reveal">
       <div class="filter-tabs" id="filterTabs" role="tablist">
-        <button class="filter-tab active" data-filter="all" role="tab">All Projects</button>
-        <button class="filter-tab" data-filter="ups" role="tab">UPS Systems</button>
-        <button class="filter-tab" data-filter="inverter" role="tab">Inverters</button>
-        <button class="filter-tab" data-filter="solar" role="tab">Solar PV</button>
-        <button class="filter-tab" data-filter="batteries" role="tab">Batteries</button>
-        <button class="filter-tab" data-filter="ict" role="tab">ICT</button>
-        <button class="filter-tab" data-filter="maintenance" role="tab">Maintenance</button>
+        <button class="ftab active" data-filter="all">All</button>
+        <button class="ftab" data-filter="solar">Solar PV</button>
+        <button class="ftab" data-filter="ups">UPS</button>
+        <button class="ftab" data-filter="inverter">Inverters</button>
+        <button class="ftab" data-filter="batteries">Batteries</button>
+        <button class="ftab" data-filter="ict">ICT</button>
+        <button class="ftab" data-filter="maintenance">Maintenance</button>
       </div>
-      <div class="search-wrap">
-        <input type="text" id="searchInput" class="search-input" placeholder="Search projects…" aria-label="Search projects">
-        <span class="search-icon">🔍</span>
+      <div class="search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Search projects…" aria-label="Search">
       </div>
     </div>
 
-    <div class="no-results" id="noResults" style="display:none;">
+    <!-- no results -->
+    <div class="no-results" id="noResults" style="display:none">
       <span>😕</span>
-      <p>No projects match your search. Try a different filter or keyword.</p>
+      <p>No projects match. Try a different filter or keyword.</p>
     </div>
 
+    <!-- GRID -->
     <div class="projects-grid" id="projectsGrid">
 
-      <div class="project-card reveal" data-delay="1" data-cat="ups" data-search="gertrude children hospital muthaiga ups installation">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img17.jpeg') }}" alt="Project Image">
-          <span class="project-category">UPS Systems</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(0)">View Details</button></div>
+      <article class="pcard reveal" data-cat="solar" data-search="solar pv githogoro off grid 10kw healthcare wema">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='img27.jpeg') }}" alt="Solar PV at Githogoro" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge solar">☀ Solar PV</span>
         </div>
-        <div class="project-body">
-          <h3>Gertrude's Children's Hospital — Muthaiga</h3>
-          <p>Supply and installation of 10KVA UPS systems for Kenya's leading children's hospital, protecting critical medical equipment 24/7.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Muthaiga, Nairobi</span><span class="meta-tag">⚡ 10KVA UPS</span><span class="meta-tag">🏥 Healthcare</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">01</span>
+            <span class="pcard-sector">🏥 Healthcare</span>
+          </div>
+          <h3>10KW Off-Grid Solar — Wema Githogoro</h3>
+          <p>Supply, installation and maintenance of 10KW off-grid solar installation at Wema Githogoro healthcare facility.</p>
+          <div class="pcard-tags">
+            <span>Off-Grid</span><span>Solar PV</span><span>Maintenance</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Githogoro</span><span>⚡ 10KW</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="2" data-cat="maintenance" data-search="gertrude hospital maintenance contract satellite clinics years">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img24.jpeg') }}" alt="Project Image">
-          <span class="project-category">Maintenance Contract</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(1)">View Details</button></div>
+      <article class="pcard reveal" data-cat="solar" data-search="hybrid solar loresho residential 10kw water heating">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='img8.jpeg') }}" alt="Hybrid Solar Loresho" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge solar">☀ Solar Hybrid</span>
         </div>
-        <div class="project-body">
-          <h3>Gertrude's Hospital — 4-Year Maintenance Contract</h3>
-          <p>Preventive maintenance contract for UPS and inverters across the main hospital and all satellite clinics: Muthaiga, Pangani, TRM, Westlands, Komarock, Buruburu, Donholm, Lavington, Junction Mall, Nairobi West, Thika, Rongai, Syokimau, Embakasi, Kitengela, Nyali and Kisumu.</p>
-          <div class="project-meta"><span class="meta-tag">📍 17 Locations</span><span class="meta-tag">📅 4-Year Contract</span><span class="meta-tag">🏥 Multi-Site</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">02</span>
+            <span class="pcard-sector">🏠 Residential</span>
+          </div>
+          <h3>10KW Hybrid Solar — Loresho Residence</h3>
+          <p>10KW hybrid solar installation with 2×200L solar water heating system at a Loresho private residence.</p>
+          <div class="pcard-tags">
+            <span>Hybrid</span><span>Water Heating</span><span>Residential</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Loresho</span><span>⚡ 10KW</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="3" data-cat="inverter" data-search="gertrude parallel inverter commissioning testing clinics">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='pic4.jpeg') }}" alt="Project Image">
-          <span class="project-category">Parallel Inverters</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(2)">View Details</button></div>
+      <article class="pcard reveal" data-cat="inverter" data-search="inverter charger juja south duplex 7kw parallel commercial">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='img12.jpeg') }}" alt="Inverter Juja South" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge inverter">🔋 Inverter</span>
         </div>
-        <div class="project-body">
-          <h3>Gertrude's Clinics — Parallel Inverter Systems</h3>
-          <p>Supply, installation, commissioning and testing of parallel inverter systems (15KVA, 10KVA and standalone units) for various clinic locations.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Multiple Locations</span><span class="meta-tag">⚡ 15KVA / 10KVA</span><span class="meta-tag">🏥 Healthcare</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">03</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>2×7KW Inverter Charger — Juja South</h3>
+          <p>Parallel inverter configuration for two duplexes and commercial offices. Includes full commissioning and testing.</p>
+          <div class="pcard-tags">
+            <span>Parallel Config</span><span>STUDER</span><span>SUKAM</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Juja South</span><span>⚡ 14KW</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="1" data-cat="batteries" data-search="gertrude battery data center lab clinics replacement">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='pic10.jpeg') }}" alt="Project Image">
-          <span class="project-category">Battery Replacement</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(3)">View Details</button></div>
+      <article class="pcard reveal" data-cat="solar" data-search="solar water heating juja farm agricultural 200l">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='img11.jpeg') }}" alt="Solar Water Juja Farm" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge solar">☀ Solar Water</span>
         </div>
-        <div class="project-body">
-          <h3>Gertrude's Hospital — Battery Replacements</h3>
-          <p>Battery replacements for Data Center, LAB and various clinics within the Gertrude's Children's Hospital network, ensuring uninterrupted backup power.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Multiple Sites</span><span class="meta-tag">🔋 Battery Replacement</span><span class="meta-tag">🏥 Healthcare</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">04</span>
+            <span class="pcard-sector">🚜 Agricultural</span>
+          </div>
+          <h3>200L Solar Water — Juja Farm</h3>
+          <p>Supply, installation, commissioning and maintenance of 200L solar water heating system at Juja Farm.</p>
+          <div class="pcard-tags">
+            <span>Solar Water</span><span>Agriculture</span><span>Maintenance</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Juja Farm</span><span>💧 200L</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="2" data-cat="ups" data-search="karen hospital ups supply maintenance repair 80kva 100kva">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img19.jpeg') }}" alt="Project Image">
-          <span class="project-category">UPS &amp; Repair</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(4)">View Details</button></div>
+      <article class="pcard reveal" data-cat="solar" data-search="grid tie komarock gertrudes 20kw commercial healthcare">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic5.jpeg') }}" alt="Grid Tie Komarock" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge solar">☀ Grid-Tie</span>
         </div>
-        <div class="project-body">
-          <h3>Karen Hospital</h3>
-          <p>Supply of 10KVA UPS units, ongoing preventive maintenance and major repairs of 80KVA, 30KVA and 100KVA UPS systems.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Karen, Nairobi</span><span class="meta-tag">⚡ Up to 100KVA</span><span class="meta-tag">🏥 Healthcare</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">05</span>
+            <span class="pcard-sector">🏥 Healthcare</span>
+          </div>
+          <h3>20KW Grid-Tie Solar — Gertrude's Komarock</h3>
+          <p>Supply and installation of 20KW grid-tie solar installation at Gertrude's Komarock clinic facility.</p>
+          <div class="pcard-tags">
+            <span>Grid-Tie</span><span>20KW</span><span>Healthcare</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Komarock</span><span>⚡ 20KW</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="3" data-cat="inverter" data-search="leonardo company karen 10kva inverter supply">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img14.jpeg') }}" alt="Project Image">
-          <span class="project-category">Inverter System</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(5)">View Details</button></div>
+      <article class="pcard reveal" data-cat="ict" data-search="cctv data cables ict nairobi commercial computers printers">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="CCTV ICT Nairobi" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge ict">📷 ICT</span>
         </div>
-        <div class="project-body">
-          <h3>Leonardo Company, Karen</h3>
-          <p>Supply of 10KVA inverter systems for the Leonardo Company offices in Karen, providing reliable backup power for business operations.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Karen, Nairobi</span><span class="meta-tag">⚡ 10KVA Inverter</span><span class="meta-tag">🏢 Commercial</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">06</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>CCTV, Data Cables & ICT Supply</h3>
+          <p>Professional CCTV installation, structured data cabling and ICT supply including computers, laptops, printers and accessories.</p>
+          <div class="pcard-tags">
+            <span>CCTV</span><span>Data Cabling</span><span>ICT Supply</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Nairobi</span><span>🖥 ICT</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="1" data-cat="inverter" data-search="pal network westlands 5kva inverter 12 hours backup">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img23.jpeg') }}" alt="Project Image">
-          <span class="project-category">Inverter Backup</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(6)">View Details</button></div>
+      <article class="pcard reveal" data-cat="solar" data-search="off grid mobile clinic truck donholm 3kw healthcare">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Off Grid Mobile Clinic" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge solar">☀ Off-Grid</span>
         </div>
-        <div class="project-body">
-          <h3>PAL Network, Westlands</h3>
-          <p>Supply and installation of a 5KVA inverter with 12-hour backup for PAL Network's Westlands offices, ensuring 24/7 connectivity and uptime.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Westlands, Nairobi</span><span class="meta-tag">⚡ 5KVA / 12hr</span><span class="meta-tag">📡 ISP/Network</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">07</span>
+            <span class="pcard-sector">🏥 Healthcare</span>
+          </div>
+          <h3>3KW Off-Grid — Mobile Clinic Truck</h3>
+          <p>Custom off-grid solar design and installation for a mobile clinic truck, enabling healthcare delivery in remote areas.</p>
+          <div class="pcard-tags">
+            <span>Off-Grid</span><span>Custom Design</span><span>Mobile</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Donholm</span><span>⚡ 3KW</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="2" data-cat="inverter" data-search="consolata fathers kerugoya inverter battery replacement">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='pic11.jpeg') }}" alt="Project Image">
-          <span class="project-category">Inverter &amp; Batteries</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(7)">View Details</button></div>
+      <article class="pcard reveal" data-cat="solar" data-search="grid tie pangani gertrudes 20kw walkways cleaning healthcare">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Gertrudes Pangani" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge solar">☀ Grid-Tie</span>
         </div>
-        <div class="project-body">
-          <h3>Consolata Fathers, Kerugoya</h3>
-          <p>Inverter installations and battery replacements for the Consolata Fathers mission in Kerugoya, ensuring reliable power for their operations.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Kerugoya</span><span class="meta-tag">🔋 Inverter + Batteries</span><span class="meta-tag">🏛 Religious Organisation</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">08</span>
+            <span class="pcard-sector">🏥 Healthcare</span>
+          </div>
+          <h3>20KW Grid-Tie — Gertrude's Pangani</h3>
+          <p>Grid-tie solar installation with custom walkways and access cleaning points at Gertrude's Pangani Clinic.</p>
+          <div class="pcard-tags">
+            <span>Grid-Tie</span><span>Custom Design</span><span>Walkways</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Pangani</span><span>⚡ 20KW</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="3" data-cat="batteries" data-search="musoni kenya ups battery replacement">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='pic10.jpeg') }}" alt="Project Image">
-          <span class="project-category">Battery Replacement</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(8)">View Details</button></div>
+      <article class="pcard reveal" data-cat="ups" data-search="ups lithium battery kisumu gertrudes 20kwh grid tie healthcare">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="UPS Gertrudes Kisumu" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge ups">🔌 UPS + Solar</span>
         </div>
-        <div class="project-body">
-          <h3>Musoni Kenya Ltd — UPS Battery Replacement</h3>
-          <p>UPS battery replacement for Musoni Kenya Ltd, maintaining reliable backup power for their microfinance operations.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Nairobi</span><span class="meta-tag">🔋 Battery Replacement</span><span class="meta-tag">🏦 Microfinance</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">09</span>
+            <span class="pcard-sector">🏥 Healthcare</span>
+          </div>
+          <h3>20KWh Grid-Tie + 10KWh Lithium — Gertrude's Kisumu</h3>
+          <p>Grid-tie solar with 10KWh lithium battery bank providing UPS-grade backup for Gertrude's Kisumu clinic.</p>
+          <div class="pcard-tags">
+            <span>UPS Loads</span><span>Lithium</span><span>Grid-Tie</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Kisumu</span><span>⚡ 20KWh</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="1" data-cat="inverter" data-search="musoni kenya donholm kitale eldoret migori zimmerman inverter">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img25.jpeg') }}" alt="Project Image">
-          <span class="project-category">Multi-Branch Inverters</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(9)">View Details</button></div>
+      <article class="pcard reveal" data-cat="batteries" data-search="deye hybrid inverter lithium battery thika residential 5kw 10kwh">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Deye Hybrid Thika" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge batteries">🔋 Hybrid</span>
         </div>
-        <div class="project-body">
-          <h3>Musoni Kenya Ltd — Multi-Branch Inverters</h3>
-          <p>Inverter installations across five Musoni Kenya branch offices: Donholm, Kitale, Eldoret, Migori and Zimmerman, ensuring reliable power nationwide.</p>
-          <div class="project-meta"><span class="meta-tag">📍 5 Branches Nationwide</span><span class="meta-tag">⚡ Inverter Systems</span><span class="meta-tag">🏦 Microfinance</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">10</span>
+            <span class="pcard-sector">🏠 Residential</span>
+          </div>
+          <h3>5KW Deye Hybrid + 10KWh Lithium — Thika</h3>
+          <p>Deye hybrid inverter with lithium battery bank for a Thika residence, providing reliable backup and solar optimization.</p>
+          <div class="pcard-tags">
+            <span>Deye</span><span>Lithium</span><span>Hybrid</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Thika</span><span>⚡ 5KW</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="2" data-cat="batteries" data-search="abc bank battery replacement various branches nationwide">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='pic8.jpeg') }}" alt="Project Image">
-          <span class="project-category">Battery Replacement</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(10)">View Details</button></div>
+      <article class="pcard reveal" data-cat="inverter" data-search="9kw hybrid inverter muthaiga commercial">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Hybrid Inverter Muthaiga" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge inverter">🔋 Inverter</span>
         </div>
-        <div class="project-body">
-          <h3>ABC the Bank — Multi-Branch Battery Replacement</h3>
-          <p>UPS battery replacement across multiple ABC Bank branches nationwide, ensuring uninterrupted banking operations and data protection.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Multiple Branches</span><span class="meta-tag">🔋 Battery Replacement</span><span class="meta-tag">🏦 Banking</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">11</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>9KW Hybrid Inverter — Muthaiga</h3>
+          <p>Design and installation of a 9KW hybrid inverter system at a Muthaiga commercial property.</p>
+          <div class="pcard-tags">
+            <span>Hybrid</span><span>9KW</span><span>Commercial</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Muthaiga</span><span>⚡ 9KW</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="3" data-cat="solar" data-search="basco paints solar inverter installation manufacturing">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img21.jpeg') }}" alt="Project Image">
-          <span class="project-category">Solar &amp; Inverter</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(11)">View Details</button></div>
+      <article class="pcard reveal" data-cat="inverter" data-search="15kw 3phase inverter sarit centre commercial">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="3 Phase Inverter Sarit" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge inverter">🔋 3-Phase</span>
         </div>
-        <div class="project-body">
-          <h3>Basco Paints</h3>
-          <p>Complete solar and inverter installation for one of Kenya's leading paint manufacturers, reducing energy costs and improving power reliability significantly.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Nairobi</span><span class="meta-tag">☀ Solar + Inverter</span><span class="meta-tag">🏭 Manufacturing</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">12</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>15KW Hybrid 3-Phase Inverter — Sarit Centre</h3>
+          <p>Three-phase hybrid inverter installation at Sarit Centre, handling heavy commercial loads with full commissioning.</p>
+          <div class="pcard-tags">
+            <span>3-Phase</span><span>15KW</span><span>Sarit</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Sarit Centre</span><span>⚡ 15KW</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="1" data-cat="inverter" data-search="media max networks 10kva inverter installation broadcasting">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img19.jpeg') }}" alt="Project Image">
-          <span class="project-category">Inverter System</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(12)">View Details</button></div>
+      <article class="pcard reveal" data-cat="ups" data-search="40kva ups muthaiga commercial servicing">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="40KVA UPS Muthaiga" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge ups">🔌 UPS</span>
         </div>
-        <div class="project-body">
-          <h3>Media Max Networks</h3>
-          <p>10KVA inverter installation for Kenya's Media Max Networks broadcasting facilities, ensuring uninterrupted on-air operations at all times.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Nairobi</span><span class="meta-tag">⚡ 10KVA Inverter</span><span class="meta-tag">📺 Broadcasting / Media</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">13</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>40KVA UPS Servicing — Muthaiga</h3>
+          <p>Comprehensive servicing and maintenance of a 40KVA UPS system at a Muthaiga commercial facility.</p>
+          <div class="pcard-tags">
+            <span>40KVA</span><span>UPS</span><span>Servicing</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Muthaiga</span><span>⚡ 40KVA</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="2" data-cat="ups" data-search="ministry agriculture kapp ups installation commissioning batteries government">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='pic4.jpeg') }}" alt="Project Image">
-          <span class="project-category">Government</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(13)">View Details</button></div>
+      <article class="pcard reveal" data-cat="batteries" data-search="lithium battery kitengela mall 10.24kwh commercial installation">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Lithium Battery Kitengela Mall" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge batteries">🔋 Lithium</span>
         </div>
-        <div class="project-body">
-          <h3>Ministry of Agriculture (KAPP)</h3>
-          <p>UPS installation, commissioning and battery replacement for the Kenya Agricultural Productivity Project (KAPP) across multiple government office locations.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Nationwide</span><span class="meta-tag">⚡ UPS Systems</span><span class="meta-tag">🏛 Government</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">14</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>10.24KWh Lithium Battery — Kitengela Mall</h3>
+          <p>Design and installation of a 10.24KWh lithium battery energy storage system at Kitengela Mall.</p>
+          <div class="pcard-tags">
+            <span>Lithium</span><span>10.24KWh</span><span>Storage</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Kitengela Mall</span><span>⚡ 10.24KWh</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="3" data-cat="solar" data-search="bird life international solar panels installation conservation">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='pic3.jpeg') }}" alt="Project Image">
-          <span class="project-category">Solar PV</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(14)">View Details</button></div>
+      <article class="pcard reveal" data-cat="ups" data-search="60kva avr ups kisumu commercial installation">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="60KVA AVR Kisumu" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge ups">🔌 AVR/UPS</span>
         </div>
-        <div class="project-body">
-          <h3>Bird Life International</h3>
-          <p>Solar panel installation for the Kenya office of the global conservation charity, supporting their sustainability mission and reducing their carbon footprint.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Nairobi</span><span class="meta-tag">☀ Solar PV</span><span class="meta-tag">🌿 Conservation NGO</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">15</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>60KVA AVR Installation — Kisumu</h3>
+          <p>Design and installation of a 60KVA automatic voltage regulator system for a large commercial facility in Kisumu.</p>
+          <div class="pcard-tags">
+            <span>60KVA</span><span>AVR</span><span>UPS</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Kisumu</span><span>⚡ 60KVA</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="1" data-cat="solar" data-search="jlianco kenya borehole equipping solarization water pumping">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img10.jpeg') }}" alt="Jlianco Kenya Borehole Solarization Project">
-          <span class="project-category">Solar Borehole</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(15)">View Details</button></div>
+      <article class="pcard reveal" data-cat="solar" data-search="borehole solarization mwihoko commercial water pump">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Borehole Mwihoko" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge solar">☀ Borehole</span>
         </div>
-        <div class="project-body">
-          <h3>Jlianco Kenya — Borehole Solarization</h3>
-          <p>Borehole equipping and solarization delivering reliable, solar-powered water supply through a complete pumping system design and installation.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Kenya</span><span class="meta-tag">☀ Solar Pumping</span><span class="meta-tag">💧 Water Access</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">16</span>
+            <span class="pcard-sector">💧 Water</span>
+          </div>
+          <h3>Borehole Solarization — Mwihoko</h3>
+          <p>Complete borehole equipping and solar-powered pump installation at Mwihoko, delivering clean water access.</p>
+          <div class="pcard-tags">
+            <span>Borehole</span><span>Solar Pump</span><span>Water</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Mwihoko</span><span>☀ Solar</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="2" data-cat="solar" data-search="mr mohamed residence solar water heating 300l system installation">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='pic2.jpeg') }}" alt="Mr. Mohamed Residence Solar Water Heating Project">
-          <span class="project-category">Solar Water Heating</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(16)">View Details</button></div>
+      <article class="pcard reveal" data-cat="inverter" data-search="12kw 3phase backup inverter gateway mall syokimau commercial">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Gateway Mall Syokimau" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge inverter">🔋 Inverter</span>
         </div>
-        <div class="project-body">
-          <h3>Mr. Mohamed Residence — Solar Water Heating</h3>
-          <p>300-litre solar water heating system installation for a private residence, delivering cost savings and a sustainable hot water supply.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Kenya</span><span class="meta-tag">☀ 300L Solar Heating</span><span class="meta-tag">🏠 Residential</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">17</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>12KW 3-Phase Backup Inverter — Gateway Mall</h3>
+          <p>Three-phase backup inverter installation at Gateway Mall Syokimau ensuring uninterrupted power for retail operations.</p>
+          <div class="pcard-tags">
+            <span>3-Phase</span><span>12KW</span><span>Mall</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Syokimau</span><span>⚡ 12KW</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="3" data-cat="ict" data-search="jntwice technologies desktop computers supply installation">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img12.jpeg') }}" alt="Jntwice Technologies ICT Supply Project">
-          <span class="project-category">ICT Supply</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(17)">View Details</button></div>
+      <article class="pcard reveal" data-cat="solar" data-search="off grid laikipia outback inverter commercial installation">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Laikipia Off Grid" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge solar">☀ Off-Grid</span>
         </div>
-        <div class="project-body">
-          <h3>Jntwice Technologies</h3>
-          <p>Supply and installation of desktop computers for Jntwice Technologies, providing them with fully configured workstations ready for immediate use.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Nairobi</span><span class="meta-tag">💻 Desktop Computers</span><span class="meta-tag">🖥 Technology</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">18</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>Off-Grid Solar + Outback Inverter — Laikipia</h3>
+          <p>Remote off-grid solar installation with Outback inverter configuration for a Laikipia commercial property.</p>
+          <div class="pcard-tags">
+            <span>Off-Grid</span><span>Outback</span><span>Remote</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Laikipia</span><span>⚡ 10KVA</span>
+          </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card reveal" data-delay="1" data-cat="ict" data-search="mother mercy children home laptops printers projectors supply installation education">
-        <div class="project-img-wrap">
-          <img src="{{ url_for('static', filename='img13.jpeg') }}" alt="Mother Mercy Children's Home ICT Project">
-          <span class="project-category">ICT Supply</span>
-          <div class="project-overlay"><button class="view-btn" onclick="openModal(18)">View Details</button></div>
+      <article class="pcard reveal" data-cat="maintenance" data-search="inverter servicing meru maintenance support">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Inverter Servicing Meru" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge maintenance">🔧 Servicing</span>
         </div>
-        <div class="project-body">
-          <h3>Mother Mercy Children's Home</h3>
-          <p>Supply and installation of laptops, printers and projectors for the children's home education center, enhancing learning opportunities for the children.</p>
-          <div class="project-meta"><span class="meta-tag">📍 Nairobi</span><span class="meta-tag">💻 Laptops + Projectors</span><span class="meta-tag">🏫 Education / NGO</span></div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">19</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>Inverter Servicing — Meru</h3>
+          <p>Full inverter servicing and preventive maintenance at a Meru commercial facility, restoring peak system performance.</p>
+          <div class="pcard-tags">
+            <span>Servicing</span><span>Maintenance</span><span>Meru</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Meru</span><span>🔧 Service</span>
+          </div>
         </div>
-      </div>
+      </article>
+
+      <article class="pcard reveal" data-cat="solar" data-search="inverter mombasa nyali 15kw commercial installation">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Mombasa Nyali" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge inverter">🔋 Inverter</span>
+        </div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">20</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>Inverter Installation — Mombasa Nyali</h3>
+          <p>Design and installation of a 15KW inverter system at a Mombasa Nyali commercial facility near the coast.</p>
+          <div class="pcard-tags">
+            <span>Inverter</span><span>Coastal</span><span>15KW</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Nyali</span><span>⚡ 15KW</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard reveal" data-cat="inverter" data-search="15kw inverter meru greenwood mall commercial installation">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Greenwood Mall Meru" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge inverter">🔋 Inverter</span>
+        </div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">21</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>15KW Inverter — Meru Greenwood Mall</h3>
+          <p>Inverter installation at Meru Greenwood Mall ensuring reliable backup power for retail and commercial tenants.</p>
+          <div class="pcard-tags">
+            <span>15KW</span><span>Mall</span><span>Inverter</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Meru</span><span>⚡ 15KW</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard reveal" data-cat="solar" data-search="solar water installation kitusuru 200l residential commercial">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='pic14.jpg') }}" alt="Solar Water Kitusuru" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge solar">☀ Solar Water</span>
+        </div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">22</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>200L Solar Water System — Kitusuru</h3>
+          <p>Design and installation of a 200L solar water heating system providing reliable hot water at a Kitusuru property.</p>
+          <div class="pcard-tags">
+            <span>Solar Water</span><span>200L</span><span>Kitusuru</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Kitusuru</span><span>💧 200L</span>
+          </div>
+        </div>
+      </article>
+
+       <article class="pcard reveal" data-cat="inverter" data-search="inverter charger juja south duplex 7kw parallel commercial">
+        <div class="pcard-img">
+          <img src="{{ url_for('static', filename='img12.jpeg') }}" alt="Inverter Juja South" loading="lazy">
+          <div class="pcard-img-overlay"></div>
+          <span class="pcard-badge inverter">🔋 Solar</span>
+        </div>
+        <div class="pcard-glass">
+          <div class="pcard-header">
+            <span class="pcard-num">23</span>
+            <span class="pcard-sector">🏢 Commercial</span>
+          </div>
+          <h3>2×7KW Solar Water — Kicheche Masai Mara</h3>
+          <p>Solar water heating systems maintenance at Kicheche Masai Mara.</p>
+          <div class="pcard-tags">
+            <span>Parallel Config</span><span>STUDER</span><span>MERCER</span>
+          </div>
+          <div class="pcard-meta">
+            <span>📍 Kicheche Masai Mara</span><span>⚡ 14KW</span>
+          </div>
+        </div>
+      </article>
 
     </div><!-- /projects-grid -->
   </div>
 </section>
 
-<!-- FEATURED SECTION -->
-<section class="featured-section section-pad alt-bg">
+<!-- ░░ FLAGSHIP PARTNER ░░ -->
+<section class="flagship-section">
+  <div class="flagship-orb"></div>
+  <div class="container">
+    <div class="flagship-grid">
+      <div class="flagship-visual reveal">
+        <img src="{{ url_for('static', filename='pic13.jpg') }}" alt="Gertrude's Children's Hospital">
+        <div class="flagship-badge">
+          <strong>15+</strong>
+          <span>Clinic Sites</span>
+        </div>
+        <div class="flagship-img-glow"></div>
+      </div>
+      <div class="flagship-content reveal">
+        <div class="fship-pill">🏆 Long-Term Partnership</div>
+        <h2>Gertrude's<br><span>Children's Hospital</span></h2>
+        <div class="divider-line"></div>
+        <p>Our most significant ongoing partnership — Kenya's premier pediatric healthcare network. We manage UPS and inverter systems across the Muthaiga headquarters and all satellite clinics nationwide.</p>
+        <p style="margin-top:.9rem">Locations: Muthaiga · Pangani · TRM · Westlands · Komarock · Buruburu · Donholm · Lavington · Junction Mall · Nairobi West · Thika · Rongai · Syokimau · Embakasi · Kitengela · Nyali · Kisumu</p>
+        <div class="fship-tags">
+          <span>UPS Systems</span>
+          <span>Parallel Inverters</span>
+          <span>Battery Replacement</span>
+          <span>Preventive Maintenance</span>
+          <span>4-Year Contract</span>
+          <span>17 Sites</span>
+        </div>
+        <a href="{{ url_for('contact') }}" class="fship-cta">Start Your Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ VIDEOS ░░ -->
+<section class="videos-section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-label">Flagship Partnership</span>
-      <h2 class="section-title">Long-Term Client Highlight</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="featured-grid">
-      <div class="featured-visual reveal">
-        <img src="{{ url_for('static', filename='pic13.jpg') }}" alt="Project Image">
-        <div class="featured-stat-badge">
-          <strong>15+</strong>
-          <span>Clinic Sites Served</span>
-        </div>
-      </div>
-      <div class="featured-content reveal" data-delay="2">
-        <span class="tag-pill">Long-Term Partner</span>
-        <h2>Gertrude's<br>Children's Hospital</h2>
-        <div class="divider"></div>
-        <p>Our most significant ongoing partnership is with Gertrude's Children's Hospital — Kenya's premier pediatric healthcare network. We manage UPS and inverter systems across their main Muthaiga hospital and all satellite clinics.</p>
-        <p style="margin-top:1rem">Locations covered: Muthaiga, Pangani, TRM, Westlands, Komarock, Buruburu, Donholm, Lavington, Junction Mall, Nairobi West, Thika, Rongai, Syokimau, Embakasi, Kitengela, Nyali and Kisumu.</p>
-        <p style="margin-top:1rem">Services include: supply, installation, commissioning, testing, parallel inverter configurations (15KVA and 10KVA), battery replacements for Data Center and LAB, and a 4-year preventive maintenance contract.</p>
-        <div class="feat-tags">
-          <span class="tag">UPS Systems</span>
-          <span class="tag">Parallel Inverters</span>
-          <span class="tag">Battery Replacement</span>
-          <span class="tag">Preventive Maintenance</span>
-          <span class="tag">Multi-Site</span>
-        </div>
-        <a href="{{ url_for('contact') }}" class="btn-primary" style="margin-top:2rem">Start Your Project →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- YOUTUBE VIDEOS SECTION -->
-<section class="youtube-section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">WATCH US IN ACTION</span>
+      <div class="section-pill">Watch Us In Action</div>
       <h2>Featured Videos</h2>
-      <p>
-        Explore our latest projects, installations, and behind-the-scenes work.
-      </p>
+      <p>See our installations, project walkthroughs and behind-the-scenes work.</p>
     </div>
-
-    <div class="youtube-grid">
-
-      <div class="youtube-card">
-        <div class="youtube-video">
-          <iframe
-            src="https://www.youtube.com/embed/n6QhAKCEp30"
-            title="YouTube Video 1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+    <div class="videos-grid">
+      <div class="video-card reveal">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/n6QhAKCEp30" title="Project Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
-        <h3>Project Showcase</h3>
+        <div class="video-label">Project Showcase</div>
       </div>
-
-      <div class="youtube-card">
-        <div class="youtube-video">
-          <iframe
-            src="https://www.youtube.com/embed/AZIXleXXuMM"
-            title="YouTube Video 2"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+      <div class="video-card reveal">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/AZIXleXXuMM" title="Installation Process" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
-        <h3>Installation Process</h3>
+        <div class="video-label">Installation Process</div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- PROJECT MODAL -->
-<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
-    <div class="modal-img-wrap">
-      <div class="modal-img-placeholder">
-        <span id="modalImgEmoji">🏥</span>
-        <small>Project Photo</small>
+<!-- ░░ CTA BAND ░░ -->
+<section class="cta-section">
+  <div class="cta-orb cta-orb-1"></div>
+  <div class="cta-orb cta-orb-2"></div>
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-pill">Ready to Start?</div>
+      <h2>Get a Free Site Assessment Today</h2>
+      <p>Our engineers will visit your premises, assess your exact power requirements and design a system tailored to your budget — completely free.</p>
+      <div class="cta-actions">
+        <a href="{{ url_for('contact') }}" class="btn-primary">☀ Request Free Quote</a>
+        <a href="tel:+254723233209" class="btn-ghost">📞 Call Us Now</a>
+        <a href="https://wa.me/254723233209" class="btn-ghost btn-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <div class="cta-contacts">
+        <a href="mailto:info@powergeekzengineeringltd.co.ke">✉ info@powergeekzengineeringltd.co.ke</a>
+        <a href="tel:+254723233209">📞 +254 723 233 209</a>
+        <span>📍 Limuru Road, Ruaka, Nairobi</span>
       </div>
     </div>
-    <div class="modal-body">
-      <span class="modal-category" id="modalCategory">UPS Systems</span>
-      <h3 id="modalTitle">Project Title</h3>
-      <div class="divider"></div>
-      <p id="modalDesc">Project description here.</p>
-      <div class="modal-meta" id="modalMeta"></div>
-      <a href="{{ url_for('contact') }}" class="btn-primary" style="margin-top:1.5rem;display:inline-flex">Get a Similar Quote →</a>
-    </div>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
+<!-- ░░ FOOTER ░░ -->
 <footer>
   <div class="container">
-    <div class="footer-top">
+    <div class="footer-grid">
       <div class="footer-brand">
         <div class="f-logo">
-          <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="Powergeekz Logo">
-          <span class="f-logo-text"><span class="p">POWER</span><span class="g">GEEKZ</span></span>
+          <img src="static/logo.jpeg" alt="Powergeekz Logo">
+          <span><span class="fp">POWER</span><span class="fg">GEEKZ</span></span>
         </div>
-        <p>Leading provider of solar PV systems, UPS, inverters and power backup solutions in Kenya and East Africa. Engineering excellence since 2013.</p>
-        <div class="f-reg"><strong>Reg:</strong> CPR/2013/103782 &nbsp;·&nbsp; <strong>VAT:</strong> P051424698Q<br><strong>Bank:</strong> Co-op Bank Ruaka &nbsp;·&nbsp; <strong>A/C:</strong> 01148395621000</div>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/share/18s5vZ64YR/" target="_blank" rel="noopener" class="f-social fb" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="https://www.tiktok.com/@powergeekzengineeringltd" target="_blank" rel="noopener" class="f-social tt" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-          <a href="https://wa.me/254723233209" target="_blank" rel="noopener" class="f-social wa" title="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-          <a href="mailto:info@powergeekzengineeringltd.co.ke" class="f-social em" title="Email"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></a>
-          <a href="tel:+254723233209" class="f-social ph" title="Call"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.2 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
+        <p>Leading provider of solar PV, UPS, inverters and power backup solutions in Kenya and East Africa. Engineering excellence since 2013.</p>
+        <div class="f-reg">Reg: CPR/2013/103782 · VAT: P051424698Q<br>Bank: Co-op Bank Ruaka · A/C: 01148395621000</div>
+        <div class="f-socials">
+          <a href="https://www.facebook.com/share/18s5vZ64YR/" target="_blank" rel="noopener" class="fsoc" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://wa.me/254723233209" target="_blank" rel="noopener" class="fsoc" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="mailto:info@powergeekzengineeringltd.co.ke" class="fsoc" title="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></a>
+          <a href="tel:+254723233209" class="fsoc" title="Call"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.2 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
         </div>
       </div>
-      <div class="footer-col"><h4>Company</h4><ul><li><a href="{{ url_for('index') }}">Home</a></li><li><a href="{{ url_for('about') }}">About Us</a></li><li><a href="{{ url_for('about') }}#team">Our Team</a></li><li><a href="{{ url_for('portfolio') }}">Projects</a></li><li><a href="{{ url_for('contact') }}">Careers</a></li></ul></div>
-      <div class="footer-col"><h4>Services</h4><ul><li><a href="{{ url_for('services') }}">Solar PV Systems</a></li><li><a href="{{ url_for('services') }}">UPS &amp; Inverters</a></li><li><a href="{{ url_for('services') }}">Generators &amp; AVR</a></li><li><a href="{{ url_for('services') }}">Batteries</a></li><li><a href="{{ url_for('services') }}">CCTV &amp; ICT</a></li><li><a href="{{ url_for('services') }}">Maintenance</a></li></ul></div>
-      <div class="footer-col"><h4>Portfolio</h4><ul><li><a href="{{ url_for('portfolio') }}">All Projects</a></li><li><a href="{{ url_for('portfolio') }}">Solar Projects</a></li><li><a href="{{ url_for('portfolio') }}">UPS Projects</a></li><li><a href="{{ url_for('portfolio') }}">Hospital Work</a></li><li><a href="{{ url_for('portfolio') }}">ICT Supply</a></li></ul></div>
-      <div class="footer-col"><h4>Contact Us</h4><ul><li><a href="#">📍 Limuru Rd, Ruaka, Nairobi</a></li><li><a href="#">P.O. Box 12168-00100</a></li><li><a href="tel:+254723233209">📞 +254 723 233 209</a></li><li><a href="tel:+254101233209">📞 +254 101 233 209</a></li><li><a href="mailto:info@powergeekzengineeringltd.co.ke">✉ info@powergeekzengineeringltd.co.ke</a></li><li><a href="https://maps.google.com/?q=Ruaka,Nairobi" target="_blank">🗺 Get Directions</a></li></ul><div class="footer-badge">🕐 Mon–Fri 8am–5:30pm · Sat 9am–1pm</div></div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About Us</a></li>
+          <li><a href="{{ url_for('portfolio') }}">Projects</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="{{ url_for('services') }}">Solar PV</a></li>
+          <li><a href="{{ url_for('services') }}">UPS & Inverters</a></li>
+          <li><a href="{{ url_for('services') }}">Batteries</a></li>
+          <li><a href="{{ url_for('services') }}">CCTV & ICT</a></li>
+          <li><a href="{{ url_for('services') }}">Maintenance</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="{{ url_for('contact') }}">📍 Limuru Rd, Ruaka</a></li>
+          <li><a href="tel:+254723233209">📞 +254 723 233 209</a></li>
+          <li><a href="tel:+254101233209">📞 +254 101 233 209</a></li>
+          <li><a href="mailto:info@powergeekzengineeringltd.co.ke">✉ info@powergeekz…</a></li>
+        </ul>
+        <div class="footer-hours">🕐 Mon–Fri 8am–5:30pm<br>Sat 9am–1pm</div>
+      </div>
     </div>
   </div>
-  <div class="footer-ticker-wrap">
-    <div class="footer-ticker-lbl">Our Valued Clients &amp; Partners</div>
-    <div class="footer-ticker-track" id="footerTickerTrack"></div>
+
+  <div class="footer-clients">
+    <span class="fc-label">Our Valued Clients</span>
+    <div class="fc-track" id="ftTrack"></div>
   </div>
+
   <div class="container">
     <div class="footer-bottom">
       <span>© 2025 Powergeekz Engineering Ltd. All rights reserved.</span>
-      <div class="footer-bottom-links">
+      <div class="fb-links">
         <a href="{{ url_for('contact') }}">Privacy Policy</a>
-        <a href="{{ url_for('contact') }}">Terms of Service</a>
+        <a href="{{ url_for('contact') }}">Terms</a>
         <span>Built with ☀ for a greener Kenya</span>
       </div>
     </div>
@@ -491,115 +772,84 @@
 </footer>
 
 <script>
-/* ---- NAVBAR ---- */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+(function(){
+  'use strict';
 
-/* ---- HAMBURGER ---- */
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', function () {
-  const isOpen = this.classList.toggle('open');
-  if (isOpen) { mobileMenu.style.display = 'flex'; setTimeout(() => mobileMenu.classList.add('open'), 10); document.body.style.overflow = 'hidden'; }
-  else { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
-  mobileMenu.setAttribute('aria-hidden', String(!isOpen));
-});
-mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = '';
-}));
-document.addEventListener('click', e => {
-  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('open')) {
-    hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = '';
-  }
-});
+  var CLIENTS = ["Gertrude's Children's Hospital","Karen Hospital","ABC the Bank","Bird Life International","Basco Paints","Media Max Networks","Ministry of Agriculture","PAL Network","Musoni Kenya Ltd","Jlianco Kenya","Mother Mercy Children's Home","Leonardo Company","Consolata Fathers","Co-operative Bank of Kenya","Jntwice Technologies"];
 
-/* ---- TICKERS ---- */
-const clients = ["Gertrude's Children's Hospital","Karen Hospital","ABC the Bank","Bird Life International","Basco Paints","Media Max Networks","Ministry of Agriculture","PAL Network","Musoni Kenya Ltd","Jlianco Kenya","Mother Mercy Children's Home","Leonardo Company","Consolata Fathers","Jntwice Technologies"];
-function buildTicker(id, itemCls, dotCls) {
-  const track = document.getElementById(id);
-  if (!track) return;
-  track.innerHTML = [...clients, ...clients].map(c => `<div class="${itemCls}"><span class="${dotCls}"></span>${c}</div>`).join('');
-}
-buildTicker('tickerTrack', 'ticker-item', 'ticker-dot');
-buildTicker('footerTickerTrack', 'footer-ticker-item', 'footer-ticker-dot');
+  /* ── NAVBAR ── */
+  var nav = document.getElementById('navbar');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
 
-/* ---- SCROLL REVEAL ---- */
-(function () {
-  const obs = new IntersectionObserver(entries => entries.forEach(e => {
-    if (e.isIntersecting) { const d = parseInt(e.target.dataset.delay || 0); setTimeout(() => e.target.classList.add('visible'), d * 120); obs.unobserve(e.target); }
-  }), { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-})();
+  /* ── HAMBURGER ── */
+  var hbg = document.getElementById('hamburger');
+  var mm  = document.getElementById('mobileMenu');
+  var ov  = document.getElementById('menuOverlay');
+  var open = false;
 
-/* ---- COUNTER ---- */
-(function () {
-  const obs = new IntersectionObserver(entries => entries.forEach(e => {
-    if (e.isIntersecting) {
-      const el = e.target; const target = parseInt(el.dataset.target); let s = 0;
-      const step = Math.ceil(target / 40);
-      const timer = setInterval(() => { s = Math.min(s + step, target); el.textContent = s; if (s >= target) clearInterval(timer); }, 40);
-      obs.unobserve(el);
-    }
-  }), { threshold: 0.5 });
-  document.querySelectorAll('.stat-num').forEach(el => obs.observe(el));
-})();
+  function openNav(){ open=true; hbg.classList.add('open'); mm.classList.add('open'); ov.classList.add('open'); document.body.style.overflow='hidden'; hbg.setAttribute('aria-expanded','true'); }
+  function closeNav(){ open=false; hbg.classList.remove('open'); mm.classList.remove('open'); ov.classList.remove('open'); document.body.style.overflow=''; hbg.setAttribute('aria-expanded','false'); }
+  function toggleNav(){ open ? closeNav() : openNav(); }
 
-/* ---- FILTER ---- */
-document.querySelectorAll('.filter-tab').forEach(tab => {
-  tab.addEventListener('click', () => { document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active')); tab.classList.add('active'); applyFilters(); });
-});
-document.getElementById('searchInput').addEventListener('input', applyFilters);
-function applyFilters() {
-  const f = document.querySelector('.filter-tab.active').dataset.filter;
-  const q = document.getElementById('searchInput').value.toLowerCase().trim();
-  let visible = 0;
-  document.querySelectorAll('.project-card').forEach(card => {
-    const show = (f === 'all' || card.dataset.cat === f) && (!q || card.dataset.search.includes(q) || card.querySelector('h3').textContent.toLowerCase().includes(q));
-    card.style.display = show ? '' : 'none'; if (show) visible++;
+  hbg.addEventListener('click', function(e){ e.stopPropagation(); toggleNav(); });
+  hbg.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleNav(); } });
+  ov.addEventListener('click', closeNav);
+  mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeNav); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&open) closeNav(); });
+
+  /* ── TICKER ── */
+  var tt = document.getElementById('tickerTrack');
+  if(tt){ var d=CLIENTS.concat(CLIENTS); tt.innerHTML=d.map(function(c){ return '<span class="t-item"><span class="t-dot"></span>'+c+'</span>'; }).join(''); }
+
+  var ft = document.getElementById('ftTrack');
+  if(ft){ var fd=CLIENTS.concat(CLIENTS); ft.innerHTML=fd.map(function(c){ return '<span class="fc-item"><span class="fc-dot"></span>'+c+'</span>'; }).join(''); }
+
+  /* ── COUNTERS ── */
+  document.querySelectorAll('.count[data-target]').forEach(function(el){
+    var t=parseInt(el.dataset.target), done=false;
+    var obs=new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting&&!done){ done=true; var s=0,step=Math.ceil(t/55);
+        var timer=setInterval(function(){ s+=step; if(s>=t){s=t;clearInterval(timer);} el.textContent=s; },30); }
+    },{threshold:.5}); obs.observe(el);
   });
-  document.getElementById('noResults').style.display = visible === 0 ? 'flex' : 'none';
-}
 
-/* ---- MODAL ---- */
-const modalData = [
-  { emoji: '🏥', category: 'UPS Systems', title: "Gertrude's Children's Hospital — Muthaiga", desc: "Supply and installation of 10KVA UPS systems for Kenya's leading children's hospital. The project involved protecting all critical medical equipment including life support and ICU systems with uninterruptible power.", meta: ['📍 Muthaiga, Nairobi', '⚡ 10KVA UPS', '🏥 Healthcare'] },
-  { emoji: '🔧', category: 'Maintenance Contract', title: "Gertrude's Hospital — 4-Year Preventive Maintenance Contract", desc: "A comprehensive 4-year preventive maintenance contract covering UPS and inverter systems at the main Muthaiga hospital and 16 satellite clinic locations: Pangani, TRM, Westlands, Komarock, Buruburu, Donholm, Lavington, Junction Mall, Nairobi West, Thika, Rongai, Syokimau, Embakasi, Kitengela, Nyali and Kisumu.", meta: ['📍 17 Locations Nationwide', '📅 4-Year Contract', '🏥 Multi-Site Healthcare'] },
-  { emoji: '🔋', category: 'Parallel Inverters', title: "Gertrude's Clinics — Parallel Inverter Systems", desc: "Supply, installation, commissioning and testing of parallel inverter systems (15KVA and 10KVA configurations) and standalone units for various Gertrude's clinic locations, providing redundant power backup.", meta: ['📍 Multiple Clinic Locations', '⚡ 15KVA / 10KVA Parallel', '🏥 Healthcare'] },
-  { emoji: '⚡', category: 'Battery Replacement', title: "Gertrude's Hospital — Battery Replacements", desc: "Complete battery replacement project for Data Center batteries, LAB backup systems and various clinic UPS batteries throughout the Gertrude's Children's Hospital network, restoring full backup capacity.", meta: ['📍 Muthaiga + Multiple Clinics', '🔋 Full Battery Replacement', '🏥 Healthcare'] },
-  { emoji: '🏥', category: 'UPS & Repair', title: "Karen Hospital", desc: "Supply of 10KVA UPS systems for Karen Hospital. Also provided comprehensive maintenance services and major repairs of existing large UPS systems: 80KVA, 30KVA and 100KVA units, restoring them to full operational capacity.", meta: ['📍 Karen, Nairobi', '⚡ 10KVA Supply + 100KVA Repair', '🏥 Healthcare'] },
-  { emoji: '⚡', category: 'Inverter System', title: "Leonardo Company, Karen", desc: "Supply of 10KVA inverter systems for the Leonardo Company offices in Karen, providing reliable backup power for their business operations and ensuring continuity during power outages.", meta: ['📍 Karen, Nairobi', '⚡ 10KVA Inverter', '🏢 Commercial'] },
-  { emoji: '📡', category: 'Inverter Backup', title: "PAL Network, Westlands", desc: "Supply and installation of a 5KVA inverter system with 12-hour runtime backup for PAL Network's Westlands offices, ensuring round-the-clock network uptime and continuous connectivity for their ISP operations.", meta: ['📍 Westlands, Nairobi', '⚡ 5KVA Inverter', '⏱ 12-Hour Backup', '📡 ISP/Network'] },
-  { emoji: '⛪', category: 'Inverter & Batteries', title: "Consolata Fathers, Kerugoya", desc: "Complete inverter installation and battery replacement project for the Consolata Fathers mission in Kerugoya, ensuring stable, reliable power for their mission station operations and community services.", meta: ['📍 Kerugoya', '🔋 Inverter + Battery Replacement', '🏛 Religious Organisation'] },
-  { emoji: '🔋', category: 'Battery Replacement', title: "Musoni Kenya Ltd — UPS Battery Replacement", desc: "UPS battery replacement for Musoni Kenya Ltd's head office, maintaining reliable backup power to protect their microfinance core banking systems and customer data.", meta: ['📍 Nairobi', '🔋 UPS Battery Replacement', '🏦 Microfinance'] },
-  { emoji: '⚡', category: 'Multi-Branch Inverters', title: "Musoni Kenya Ltd — Multi-Branch Inverter Installations", desc: "Inverter system installations across five Musoni Kenya branch offices: Donholm, Kitale, Eldoret, Migori and Zimmerman. Each branch received a purpose-sized inverter system ensuring uninterrupted operations nationwide.", meta: ['📍 5 Branches: Donholm, Kitale, Eldoret, Migori, Zimmerman', '⚡ Inverter Systems', '🏦 Microfinance'] },
-  { emoji: '🏦', category: 'Battery Replacement', title: "ABC the Bank — Multi-Branch Battery Replacement", desc: "UPS battery replacement across multiple ABC Bank branches throughout Kenya, ensuring that all banking operations, ATM systems and core banking infrastructure remain protected from power outages.", meta: ['📍 Multiple Branches Nationwide', '🔋 UPS Battery Replacement', '🏦 Banking Sector'] },
-  { emoji: '☀', category: 'Solar & Inverter', title: "Basco Paints", desc: "Complete solar PV and inverter installation project for Basco Paints, one of Kenya's leading paint manufacturers. The hybrid system significantly reduced the company's energy costs and improved power reliability across their manufacturing facility.", meta: ['📍 Nairobi', '☀ Solar PV + Inverter', '🏭 Manufacturing Industry'] },
-  { emoji: '📺', category: 'Inverter System', title: "Media Max Networks", desc: "10KVA inverter installation for Media Max Networks broadcasting facilities in Nairobi. The project ensured uninterrupted on-air transmission capability, protecting their broadcasting equipment and preventing costly downtime.", meta: ['📍 Nairobi', '⚡ 10KVA Inverter System', '📺 Broadcasting / Media'] },
-  { emoji: '🏛', category: 'Government Project', title: "Ministry of Agriculture (KAPP)", desc: "UPS installation, commissioning and battery replacement for the Kenya Agricultural Productivity Project (KAPP) across multiple government office locations. The project protected critical government data infrastructure and ensured continuous operations.", meta: ['📍 Multiple Locations Nationwide', '⚡ UPS Installation + Commissioning', '🏛 Government / Public Sector'] },
-  { emoji: '🌿', category: 'Solar PV', title: "Bird Life International", desc: "Solar panel installation for the Kenya office of Bird Life International, the global conservation charity. The solar system supports their sustainability mission and reduces the organization's environmental footprint.", meta: ['📍 Nairobi', '☀ Solar PV System', '🌿 Conservation / NGO'] },
-  { emoji: '💧', category: 'Solar Borehole', title: "Jlianco Kenya — Borehole Equipping & Solarization", desc: "Complete borehole equipping and solarization project for Jlianco Kenya, delivering reliable solar-powered water pumping. The project provides sustainable clean water access through a solar-driven borehole pump system.", meta: ['📍 Kenya', '☀ Solar Pumping System', '💧 Water Access / Agriculture'] },
-  { emoji: '🏠', category: 'Solar Water Heating', title: "Mr. Mohamed Residence — 300L Solar Water Heating System", desc: "300-litre solar water heating system installation for a private residence. The system provides environmentally friendly, cost-effective hot water supply, significantly reducing the household's electricity bills.", meta: ['📍 Kenya', '☀ 300L Solar Water Heater', '🏠 Residential'] },
-  { emoji: '💻', category: 'ICT Supply', title: "Jntwice Technologies", desc: "Supply and installation of desktop computers for Jntwice Technologies, providing them with fully configured, tested workstations ready for immediate deployment in their operations.", meta: ['📍 Nairobi', '💻 Desktop Computer Supply', '🖥 Technology Company'] },
-  { emoji: '🏫', category: 'ICT Supply', title: "Mother Mercy Children's Home", desc: "Supply and installation of laptops, printers and projectors for the Mother Mercy Children's Home education center. The project equipped the home's computer lab, creating better learning opportunities for the children in their care.", meta: ['📍 Nairobi', '💻 Laptops + Printers + Projectors', '🏫 Education / NGO / Social Impact'] }
-];
+  /* ── SCROLL REVEAL ── */
+  var revEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var ro=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); ro.unobserve(e.target); } }); },{threshold:.08,rootMargin:'0px 0px -20px 0px'});
+    revEls.forEach(function(el){ ro.observe(el); });
+  } else { revEls.forEach(function(el){ el.classList.add('visible'); }); }
 
-function openModal(index) {
-  const d = modalData[index];
-  document.getElementById('modalImgEmoji').textContent = d.emoji;
-  document.getElementById('modalCategory').textContent = d.category;
-  document.getElementById('modalTitle').textContent = d.title;
-  document.getElementById('modalDesc').textContent = d.desc;
-  document.getElementById('modalMeta').innerHTML = d.meta.map(m => `<span class="modal-meta-tag">${m}</span>`).join('');
-  const overlay = document.getElementById('modalOverlay');
-  overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
-}
-document.getElementById('modalClose').addEventListener('click', closeModal);
-document.getElementById('modalOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-function closeModal() {
-  const overlay = document.getElementById('modalOverlay');
-  overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
-}
+  /* ── FILTER + SEARCH ── */
+  var tabs   = document.querySelectorAll('.ftab');
+  var cards  = document.querySelectorAll('.pcard');
+  var noRes  = document.getElementById('noResults');
+  var search = document.getElementById('searchInput');
+
+  function applyFilters(){
+    var f = document.querySelector('.ftab.active').dataset.filter;
+    var q = search.value.toLowerCase().trim();
+    var visible = 0;
+    cards.forEach(function(c){
+      var catOk  = f==='all' || c.dataset.cat===f;
+      var qOk    = !q || c.dataset.search.includes(q) || c.querySelector('h3').textContent.toLowerCase().includes(q);
+      var show   = catOk && qOk;
+      c.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    noRes.style.display = visible===0 ? 'flex' : 'none';
+  }
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      applyFilters();
+    });
+  });
+  search.addEventListener('input', applyFilters);
+
+})();
 </script>
 </body>
 </html>
