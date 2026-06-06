@@ -670,7 +670,7 @@ button { font-family: var(--ff); border: none; background: none; cursor: pointer
   border-radius: calc(var(--r-xl) + 3px);
   border: var(--ring-w) solid transparent;
   background:
-    linear-gradient(var(--glass-bg), var(--glass-bg)) padding-box,
+    linear-gradient(transparent, transparent) padding-box,
     conic-gradient(
       from 0deg,
       transparent 0%, transparent 20%,
