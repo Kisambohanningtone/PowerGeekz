@@ -8,7 +8,6 @@
   <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='logo.jpeg') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  
 </head>
 <body>
 
@@ -44,12 +43,12 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero-bg" id="heroBg">
-    <div class="hero-slide active"></div>
-    <div class="hero-slide"></div>
-    <div class="hero-slide"></div>
-    <div class="hero-slide"></div>
-  </div>
+  <!-- SLIDESHOW LAYERS — must be first children, z-index 0 -->
+  <div class="hero-slide active"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <!-- grid overlay -->
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
@@ -175,16 +174,16 @@
     </div>
     <div class="srv-grid">
       <div class="srv-card reveal d1">
-        <div class="srv-img-wrap"><img class="srv-img" src="{{ url_for('static', filename='PW38.jpeg') }}" alt="Solar PV" loading="lazy"><span class="srv-cat">Solar Energy</span></div>
+        <div class="srv-img-wrap"><img class="srv-img" src="{{ url_for('static', filename='PW15.jpeg') }}" alt="Solar PV" loading="lazy"><span class="srv-cat">Solar Energy</span></div>
         <div class="srv-body"><span class="tag">Solar PV</span><h3>Solar PV Systems</h3><p>Complete grid-tie, off-grid and hybrid solar panel installation, commissioning and maintenance. Includes solar water heating.</p><a href="{{ url_for('services') }}" class="srv-link">Learn More →</a></div>
       </div>
       <div class="srv-card reveal d2">
-        <div class="srv-img-wrap"><img class="srv-img" src="{{ url_for('static', filename='PW5.jpeg') }}" alt="UPS" loading="lazy"><span class="srv-cat">Power Backup</span></div>
+        <div class="srv-img-wrap"><img class="srv-img" src="{{ url_for('static', filename='PW38.jpeg') }}" alt="UPS" loading="lazy"><span class="srv-cat">Power Backup</span></div>
         <div class="srv-body"><span class="tag">UPS Systems</span><h3>UPS &amp; Inverter Systems</h3><p>Industrial and commercial UPS solutions from 400VA to 1MVA. APC, EATON, MGE, MECER, LEIBERT and INVT brands.</p><a href="{{ url_for('services') }}" class="srv-link">Learn More →</a></div>
       </div>
       <div class="srv-card reveal d3">
-        <div class="srv-img-wrap"><img class="srv-img" src="{{ url_for('static', filename='PW48.jpeg') }}" alt="Generators" loading="lazy"><span class="srv-cat">Power Generation</span></div>
-        <div class="srv-body"><span class="tag">Generators</span><h3>Generators &amp; AVS</h3><p>Supply, installation and maintenance of generators and automatic voltage regulators for uninterrupted power.</p><a href="{{ url_for('services') }}" class="srv-link">Learn More →</a></div>
+        <div class="srv-img-wrap"><img class="srv-img" src="{{ url_for('static', filename='PW39.jpeg') }}" alt="Generators" loading="lazy"><span class="srv-cat">Power Generation</span></div>
+        <div class="srv-body"><span class="tag">Generators</span><h3>Generators &amp; AVR's</h3><p>Supply, installation and maintenance of generators and automatic voltage regulators for uninterrupted power.</p><a href="{{ url_for('services') }}" class="srv-link">Learn More →</a></div>
       </div>
     </div>
   </div>
@@ -211,15 +210,15 @@
     </div>
     <div class="pp-grid">
       <div class="pp-card reveal d1">
-        <div class="pp-img-wrap"><img class="pp-img" src="{{ url_for('static', filename='pic5.jpeg') }}" alt="Gertrude's Hospital" loading="lazy"><span class="pp-cat">UPS · Maintenance</span></div>
+        <div class="pp-img-wrap"><img class="pp-img" src="{{ url_for('static', filename='PW28.jpeg') }}" alt="Gertrude's Hospital" loading="lazy"><span class="pp-cat">UPS · Maintenance</span></div>
         <div class="pp-body"><h4>Gertrude's Children's Hospital</h4><p>4-year maintenance contract across 15+ satellite clinics. UPS and parallel inverter systems nationwide.</p><div class="pp-meta"><span>📍 15+ Locations</span><span>⚡ 15KVA</span><span>🏥 Healthcare</span></div></div>
       </div>
       <div class="pp-card reveal d2">
-        <div class="pp-img-wrap"><img class="pp-img" src="{{ url_for('static', filename='img24.jpeg') }}" alt="Basco Paints" loading="lazy"><span class="pp-cat">Solar · Inverter</span></div>
+        <div class="pp-img-wrap"><img class="pp-img" src="{{ url_for('static', filename='PW22.jpeg') }}" alt="Basco Paints" loading="lazy"><span class="pp-cat">Solar · Inverter</span></div>
         <div class="pp-body"><h4>Basco Paints — Solar &amp; Inverter</h4><p>Complete solar and inverter installation for Kenya's leading paint manufacturer, reducing energy costs significantly.</p><div class="pp-meta"><span>📍 Nairobi</span><span>☀ Solar+Inverter</span><span>🏭 Manufacturing</span></div></div>
       </div>
       <div class="pp-card reveal d3">
-        <div class="pp-img-wrap"><img class="pp-img" src="{{ url_for('static', filename='pic9.jpeg') }}" alt="Karen Hospital" loading="lazy"><span class="pp-cat">UPS · Repair</span></div>
+        <div class="pp-img-wrap"><img class="pp-img" src="{{ url_for('static', filename='PW37.jpeg') }}" alt="Karen Hospital" loading="lazy"><span class="pp-cat">UPS · Repair</span></div>
         <div class="pp-body"><h4>Karen Hospital</h4><p>Supply of 10KVA UPS units plus major repairs of 80KVA, 30KVA and 100KVA systems with preventive maintenance.</p><div class="pp-meta"><span>📍 Karen, Nairobi</span><span>⚡ 100KVA</span><span>🏥 Healthcare</span></div></div>
       </div>
     </div>
@@ -248,37 +247,21 @@
     <div class="section-header">
       <span class="section-tag">WATCH US IN ACTION</span>
       <h2>Featured Videos</h2>
-      <p>
-        Explore our latest projects, installations, and behind-the-scenes work.
-      </p>
+      <p>Explore our latest projects, installations, and behind-the-scenes work.</p>
     </div>
-
     <div class="youtube-grid">
-
       <div class="youtube-card">
         <div class="youtube-video">
-          <iframe
-            src="https://www.youtube.com/embed/n6QhAKCEp30"
-            title="YouTube Video 1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+          <iframe src="https://www.youtube.com/embed/n6QhAKCEp30" title="YouTube Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <h3>Project Showcase</h3>
       </div>
-
       <div class="youtube-card">
         <div class="youtube-video">
-          <iframe
-            src="https://www.youtube.com/embed/AZIXleXXuMM"
-            title="YouTube Video 2"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+          <iframe src="https://www.youtube.com/embed/AZIXleXXuMM" title="YouTube Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <h3>Installation Process</h3>
       </div>
-
     </div>
   </div>
 </section>
@@ -291,7 +274,7 @@
       <h2>Start Saving on Energy Bills <span>Today</span></h2>
       <p>Our expert team will visit your site, assess your needs and design the perfect solution — completely free. Get a detailed quote within 24 hours.</p>
       <div class="cta-actions">
-        <a href="{{ url_for('contact_page') }}" class="btn-blue">☀ Request Free Quote</a>
+        <a href="{{ url_for('contact') }}" class="btn-blue">☀ Request Free Quote</a>
         <a href="tel:+254723233209" class="btn-white">📞 Call Us Now</a>
         <a href="https://wa.me/254723233209" target="_blank" rel="noopener" class="btn-black">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -323,7 +306,7 @@
           <a href="tel:+254723233209" class="f-soc ph" title="Call"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.2 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
         </div>
       </div>
-      <div class="footer-col"><h4>Company</h4><ul><li><a href="{{ url_for('index') }}">Home</a></li><li><a href="{{ url_for('about') }}">About Us</a></li><li><a href="{{ url_for('about') }}#team">Our Team</a></li><li><a href="{{ url_for('portfolio') }}">Projects</a></li><li><a href="{{ url_for('contact_page') }}">Careers</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="{{ url_for('index') }}">Home</a></li><li><a href="{{ url_for('about') }}">About Us</a></li><li><a href="{{ url_for('about') }}#team">Our Team</a></li><li><a href="{{ url_for('portfolio') }}">Projects</a></li><li><a href="{{ url_for('contact') }}">Careers</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="{{ url_for('services') }}">Solar PV Systems</a></li><li><a href="{{ url_for('services') }}">UPS &amp; Inverters</a></li><li><a href="{{ url_for('services') }}">Generators &amp; AVR</a></li><li><a href="{{ url_for('services') }}">Batteries</a></li><li><a href="{{ url_for('services') }}">CCTV &amp; ICT</a></li><li><a href="{{ url_for('services') }}">Maintenance</a></li></ul></div>
       <div class="footer-col"><h4>Portfolio</h4><ul><li><a href="{{ url_for('portfolio') }}">All Projects</a></li><li><a href="{{ url_for('portfolio') }}">Solar Projects</a></li><li><a href="{{ url_for('portfolio') }}">UPS Projects</a></li><li><a href="{{ url_for('portfolio') }}">Hospital Work</a></li><li><a href="{{ url_for('portfolio') }}">ICT Supply</a></li></ul></div>
       <div class="footer-col"><h4>Contact Us</h4><ul><li><a href="#">📍 Limuru Rd, Ruaka, Nairobi</a></li><li><a href="#">P.O. Box 12168-00100</a></li><li><a href="tel:+254723233209">📞 +254 723 233 209</a></li><li><a href="tel:+254101233209">📞 +254 101 233 209</a></li><li><a href="mailto:powergeekzengineeringltd@gmail.com">✉ powergeekzengineeringltd@gmail.com</a></li><li><a href="https://maps.google.com/?q=Ruaka,Nairobi" target="_blank">🗺 Get Directions</a></li></ul><div class="footer-hours">🕐 Mon–Fri 8am–5:30pm · Sat 9am–1pm</div></div>
@@ -345,61 +328,105 @@
 <script>
 (function(){
   'use strict';
-  var CLIENTS=["Gertrude's Children's Hospital","Karen Hospital","ABC the Bank","Bird Life International","Basco Paints","Media Max Networks","Ministry of Agriculture","PAL Network","Musoni Kenya Ltd","Jlianco Kenya","Leonardo Company","Mother Mercy Children's Home","Consolata Fathers","Co-operative Bank of Kenya"];
-  var TICKER_CONTENT=["Professional Solar Installations","Trusted UPS Solutions","Customer Satisfaction First","Innovation in Power","Excellence in Engineering","Contact Us Today","Authorized Dealers","Genuine Products","24hr Support","12+ Years Experience"];
 
-  /* NAVBAR */
-  var nav=document.getElementById('navbar');
-  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+  var CLIENTS = ["Gertrude's Children's Hospital","Karen Hospital","ABC the Bank","Bird Life International","Basco Paints","Media Max Networks","Ministry of Agriculture","PAL Network","Musoni Kenya Ltd","Jlianco Kenya","Leonardo Company","Mother Mercy Children's Home","Consolata Fathers","Co-operative Bank of Kenya"];
+  var TICKER_CONTENT = ["Professional Solar Installations","Trusted UPS Solutions","Customer Satisfaction First","Innovation in Power","Excellence in Engineering","Contact Us Today","Authorized Dealers","Genuine Products","24hr Support","12+ Years Experience"];
 
-  /* HAMBURGER */
-  var hbg=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu'),open=false;
-  function openMenu(){open=true;hbg.classList.add('open');mm.classList.add('open');mm.style.display='flex';document.body.style.overflow='hidden';}
-  function closeMenu(){open=false;hbg.classList.remove('open');mm.classList.remove('open');document.body.style.overflow='';}
-  hbg.addEventListener('click',function(){open?closeMenu():openMenu();});
-  hbg.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open?closeMenu():openMenu();}});
-  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
-  document.addEventListener('click',function(e){if(open&&!mm.contains(e.target)&&!hbg.contains(e.target)){closeMenu();}});
+  /* ── NAVBAR ─────────────────────────────────────── */
+  var nav = document.getElementById('navbar');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
 
-  /* HERO SLIDESHOW */
-  var slides=document.querySelectorAll('.hero-slide'),dotsWrap=document.getElementById('heroDots'),cur=0,timer;
-  slides.forEach(function(_,i){var d=document.createElement('button');d.className='h-dot'+(i===0?' active':'');d.setAttribute('aria-label','Slide '+(i+1));d.addEventListener('click',function(){goTo(i);});dotsWrap.appendChild(d);});
-  function goTo(n){clearInterval(timer);slides[cur].classList.remove('active');dotsWrap.querySelectorAll('.h-dot')[cur].classList.remove('active');cur=n;slides[cur].classList.add('active');dotsWrap.querySelectorAll('.h-dot')[cur].classList.add('active');timer=setInterval(function(){goTo((cur+1)%slides.length);},5500);}
-  timer=setInterval(function(){goTo((cur+1)%slides.length);},5500);
+  /* ── HAMBURGER ──────────────────────────────────── */
+  var hbg = document.getElementById('hamburger'), mm = document.getElementById('mobileMenu'), menuOpen = false;
+  function openMenu(){ menuOpen = true; hbg.classList.add('open'); mm.classList.add('open'); mm.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+  function closeMenu(){ menuOpen = false; hbg.classList.remove('open'); mm.classList.remove('open'); document.body.style.overflow = ''; }
+  hbg.addEventListener('click', function(){ menuOpen ? closeMenu() : openMenu(); });
+  hbg.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); menuOpen ? closeMenu() : openMenu(); } });
+  mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('click', function(e){ if(menuOpen && !mm.contains(e.target) && !hbg.contains(e.target)){ closeMenu(); } });
 
-  /* TOP TICKER */
-  var ti=document.getElementById('tickerInner');
-  if(ti){var td=TICKER_CONTENT.concat(TICKER_CONTENT);ti.innerHTML=td.map(function(t){return'<span class="ticker-item">'+t+'<span class="ticker-star">✦</span></span>';}).join('');}
+  /* ── HERO SLIDESHOW ─────────────────────────────── */
+  var slides    = document.querySelectorAll('.hero-slide');
+  var dotsWrap  = document.getElementById('heroDots');
+  var cur       = 0;
+  var slideTimer;
 
-  /* FOOTER TICKER */
-  var ft=document.getElementById('ftTrack');
-  if(ft){var fd=CLIENTS.concat(CLIENTS);ft.innerHTML=fd.map(function(c){return'<div class="ft-item"><span class="ft-dot"></span>'+c+'</div>';}).join('');}
-
-  /* HERO STAT COUNTERS */
-  document.querySelectorAll('.hs-num[data-target]').forEach(function(el){
-    var target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'+',done=false;
-    var obs=new IntersectionObserver(function(entries){if(entries[0].isIntersecting&&!done){done=true;animCount(el,target,suffix);}},{threshold:.5});
-    obs.observe(el);
+  /* Build dots */
+  slides.forEach(function(_, i){
+    var d = document.createElement('button');
+    d.className = 'h-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.addEventListener('click', function(){ goToSlide(i); });
+    dotsWrap.appendChild(d);
   });
 
-  /* STAT BAND COUNTERS */
-  document.querySelectorAll('.stat-num[data-target]').forEach(function(el){
-    var target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'+',done=false;
-    var obs=new IntersectionObserver(function(entries){if(entries[0].isIntersecting&&!done){done=true;animCount(el,target,suffix);}},{threshold:.5});
-    obs.observe(el);
-  });
-
-  function animCount(el,target,suffix){
-    var start=0,dur=1800,step=Math.ceil(target/60);
-    var t=setInterval(function(){start+=step;if(start>=target){start=target;clearInterval(t);}el.textContent=start+suffix;},dur/60);
+  function goToSlide(n){
+    clearInterval(slideTimer);
+    slides[cur].classList.remove('active');
+    dotsWrap.querySelectorAll('.h-dot')[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    dotsWrap.querySelectorAll('.h-dot')[cur].classList.add('active');
+    slideTimer = setInterval(function(){ goToSlide((cur + 1) % slides.length); }, 5500);
   }
 
-  /* SCROLL REVEAL */
-  var revEls=document.querySelectorAll('.reveal');
+  /* Start auto-advance */
+  slideTimer = setInterval(function(){ goToSlide((cur + 1) % slides.length); }, 5500);
+
+  /* ── TOP TICKER ─────────────────────────────────── */
+  var ti = document.getElementById('tickerInner');
+  if(ti){
+    var td = TICKER_CONTENT.concat(TICKER_CONTENT);
+    ti.innerHTML = td.map(function(t){ return '<span class="ticker-item">' + t + '<span class="ticker-star">✦</span></span>'; }).join('');
+  }
+
+  /* ── FOOTER TICKER ──────────────────────────────── */
+  var ft = document.getElementById('ftTrack');
+  if(ft){
+    var fd = CLIENTS.concat(CLIENTS);
+    ft.innerHTML = fd.map(function(c){ return '<div class="ft-item"><span class="ft-dot"></span>' + c + '</div>'; }).join('');
+  }
+
+  /* ── COUNTER ANIMATION ──────────────────────────── */
+  function animCount(el, target, suffix){
+    var start = 0, dur = 1800, step = Math.ceil(target / 60);
+    var t = setInterval(function(){
+      start += step;
+      if(start >= target){ start = target; clearInterval(t); }
+      el.textContent = start + suffix;
+    }, dur / 60);
+  }
+
+  /* Hero counters */
+  document.querySelectorAll('.hs-num[data-target]').forEach(function(el){
+    var target = parseInt(el.dataset.target), suffix = el.dataset.suffix || '+', done = false;
+    var obs = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting && !done){ done = true; animCount(el, target, suffix); }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+
+  /* Stats band counters */
+  document.querySelectorAll('.stat-num[data-target]').forEach(function(el){
+    var target = parseInt(el.dataset.target), suffix = el.dataset.suffix || '+', done = false;
+    var obs = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting && !done){ done = true; animCount(el, target, suffix); }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+
+  /* ── SCROLL REVEAL ──────────────────────────────── */
+  var revEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -20px 0px'});
-    revEls.forEach(function(el){obs.observe(el);});
-  }else{revEls.forEach(function(el){el.classList.add('visible');});}
+    var revObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('visible'); revObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+    revEls.forEach(function(el){ revObs.observe(el); });
+  } else {
+    revEls.forEach(function(el){ el.classList.add('visible'); });
+  }
 
 })();
 </script>

@@ -381,3 +381,26 @@ footer {
   .container { padding: 0 1.2rem; }
   .btn { padding: 0.75rem 1.5rem; font-size: 0.9rem; }
 }
+/* ── LOGO IMAGE — no glow, no ring, no border ── */
+.nav-logo img,
+.fb-logo img {
+  border: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  outline: none !important;
+  -webkit-filter: none !important;
+}
+:root{
+    --powergeekz-blue: #0066ff;
+}
+.logo,
+.logo span{
+    color: var(--powergeekz-blue) !important;
+}
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
