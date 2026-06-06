@@ -1550,7 +1550,716 @@ footer {
 .d2 { transition-delay: 0.14s; }
 .d3 { transition-delay: 0.23s; }
 .d4 { transition-delay: 0.32s; }
+/* ═══════════════════════════════════════════════════════════════════════════
+   POWERGEEKZ ENGINEERING — NCA ACCREDITATION SECTION
+   File: nca.css
+   Link in <head>: <link rel="stylesheet" href="css/nca.css">
+   ═══════════════════════════════════════════════════════════════════════════ */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ─────────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+───────────────────────────────────────────────────────────────────────── */
+.nca-section {
+  --nca-ink:      #030810;
+  --nca-ink2:     #08111f;
+  --nca-ink3:     #0d1a2e;
+  --nca-blue:     #1a8cff;
+  --nca-blue-hi:  #3dabff;
+  --nca-blue-vv:  #00c8ff;
+  --nca-blue-dim: rgba(26,140,255,.14);
+  --nca-glass:    rgba(10,18,36,.72);
+  --nca-bd:       rgba(26,140,255,.22);
+  --nca-bd-hi:    rgba(61,171,255,.38);
+  --nca-txt:      #dbeeff;
+  --nca-txt2:     #6fa3c4;
+  --nca-txt3:     #344e66;
+  --nca-white:    #ffffff;
+  --nca-gold:     #f5c842;
+  --nca-green:    #22d46a;
+  --nca-r:        14px;
+  --nca-r-lg:     22px;
+  --nca-r-xl:     30px;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--nca-ink2);
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5rem,9vw,8rem) clamp(1.25rem,5vw,4rem);
+  border-top: 1px solid rgba(26,140,255,.1);
+  border-bottom: 1px solid rgba(26,140,255,.08);
+  isolation: isolate;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   KEYFRAMES
+───────────────────────────────────────────────────────────────────────── */
+@keyframes ncaRingCW {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(360deg); }
+}
+@keyframes ncaRingCCW {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(-360deg); }
+}
+@keyframes ncaOrb1 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(50px,-30px) scale(1.1); }
+}
+@keyframes ncaOrb2 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(-40px,30px) scale(1.08); }
+}
+@keyframes ncaBlink {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%     { opacity:.2; transform:scale(.6); }
+}
+@keyframes ncaFloatUp {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-6px); }
+}
+@keyframes ncaShieldPulse {
+  0%,100% { filter: drop-shadow(0 0 10px rgba(26,140,255,.6)); }
+  50%     { filter: drop-shadow(0 0 28px rgba(26,140,255,1)) drop-shadow(0 0 50px rgba(0,200,255,.5)); }
+}
+@keyframes ncaReveal {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes ncaStamp {
+  0%   { transform:scale(1.4) rotate(-8deg); opacity:0; }
+  60%  { transform:scale(.95) rotate(1deg);  opacity:1; }
+  100% { transform:scale(1)   rotate(0deg);  opacity:1; }
+}
+@keyframes ncaGlow {
+  0%,100% { box-shadow: 0 0 20px rgba(26,140,255,.2); }
+  50%     { box-shadow: 0 0 40px rgba(26,140,255,.55), 0 0 80px rgba(26,140,255,.2); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   BACKGROUND — DOT GRID
+───────────────────────────────────────────────────────────────────────── */
+.nca-grid {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: radial-gradient(circle, rgba(26,140,255,.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   BACKGROUND — AMBIENT ELECTRIC RINGS
+───────────────────────────────────────────────────────────────────────── */
+.nca-ring-1,
+.nca-ring-2,
+.nca-ring-3 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.nca-ring-1 {
+  width: 700px; height: 700px;
+  top: 50%; left: -280px;
+  background:
+    linear-gradient(var(--nca-ink2), var(--nca-ink2)) padding-box,
+    conic-gradient(
+      from 0deg,
+      transparent 0%,  transparent 22%,
+      rgba(0,200,255,.55) 36%, rgba(255,255,255,.9) 50%, rgba(0,200,255,.55) 64%,
+      transparent 78%, transparent 100%
+    ) border-box;
+  filter: drop-shadow(0 0 14px rgba(26,140,255,.55)) drop-shadow(0 0 40px rgba(26,140,255,.25));
+  animation: ncaRingCW 7s linear infinite;
+}
+
+.nca-ring-2 {
+  width: 520px; height: 520px;
+  top: 50%; left: -220px;
+  background:
+    linear-gradient(var(--nca-ink2), var(--nca-ink2)) padding-box,
+    conic-gradient(
+      from 180deg,
+      transparent 0%,  transparent 28%,
+      rgba(61,171,255,.45) 44%, rgba(255,255,255,.6) 50%, rgba(61,171,255,.45) 56%,
+      transparent 72%, transparent 100%
+    ) border-box;
+  filter: drop-shadow(0 0 6px rgba(26,140,255,.3));
+  animation: ncaRingCCW 12s linear infinite;
+}
+
+.nca-ring-3 {
+  width: 560px; height: 560px;
+  top: 50%; right: -220px;
+  background:
+    linear-gradient(var(--nca-ink2), var(--nca-ink2)) padding-box,
+    conic-gradient(
+      from 90deg,
+      transparent 0%,  transparent 25%,
+      rgba(0,200,255,.5) 40%, rgba(255,255,255,.8) 50%, rgba(0,200,255,.5) 60%,
+      transparent 75%, transparent 100%
+    ) border-box;
+  filter: drop-shadow(0 0 12px rgba(26,140,255,.5)) drop-shadow(0 0 30px rgba(26,140,255,.2));
+  animation: ncaRingCW 9s linear infinite reverse;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   BACKGROUND — AMBIENT ORBS
+───────────────────────────────────────────────────────────────────────── */
+.nca-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(100px); pointer-events: none; z-index: 0;
+}
+.nca-orb-1 {
+  width: 500px; height: 500px; top: -100px; left: -80px;
+  background: radial-gradient(circle, rgba(26,140,255,.18) 0%, transparent 65%);
+  animation: ncaOrb1 14s ease-in-out infinite;
+}
+.nca-orb-2 {
+  width: 380px; height: 380px; bottom: -80px; right: -60px;
+  background: radial-gradient(circle, rgba(0,200,255,.14) 0%, transparent 65%);
+  animation: ncaOrb2 18s ease-in-out infinite;
+}
+.nca-orb-3 {
+  width: 260px; height: 260px; top: 40%; left: 50%;
+  background: radial-gradient(circle, rgba(26,140,255,.09) 0%, transparent 70%);
+  animation: ncaOrb1 10s ease-in-out infinite alternate;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   LAYOUT
+───────────────────────────────────────────────────────────────────────── */
+.nca-inner {
+  position: relative; z-index: 1;
+  max-width: 1240px; margin: 0 auto;
+}
+
+.nca-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   SECTION HEADER
+───────────────────────────────────────────────────────────────────────── */
+.nca-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: ncaReveal .7s cubic-bezier(.4,0,.2,1) both;
+}
+
+.nca-pill {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .35rem 1.1rem; margin-bottom: 1.2rem;
+  background: rgba(26,140,255,.1);
+  border: 1px solid var(--nca-bd);
+  border-radius: 99px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--nca-blue-hi);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+
+.nca-pill-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--nca-blue-vv);
+  box-shadow: 0 0 8px var(--nca-blue-vv);
+  animation: ncaBlink 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.nca-header h2 {
+  font-size: clamp(2rem,4.5vw,3.4rem);
+  font-weight: 900; letter-spacing: -.035em; line-height: 1.08;
+  color: var(--nca-white); margin-bottom: .7rem;
+}
+
+.nca-header h2 span {
+  background: linear-gradient(120deg, var(--nca-blue-hi) 0%, var(--nca-blue-vv) 60%, #fff 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(26,140,255,.45));
+}
+
+.nca-header p {
+  font-size: .95rem; color: var(--nca-txt2); line-height: 1.75;
+  max-width: 580px; margin: 0 auto;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CERTIFICATE CARD
+───────────────────────────────────────────────────────────────────────── */
+.nca-cert-card {
+  background: var(--nca-glass);
+  border: 1px solid var(--nca-bd-hi);
+  border-radius: var(--nca-r-xl);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  padding: 2.4rem 2rem;
+  position: relative; overflow: hidden;
+  animation: ncaGlow 4s ease-in-out infinite;
+}
+
+/* iOS 26 liquid glass top sheen */
+.nca-cert-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.28) 40%, rgba(26,140,255,.35) 60%, transparent);
+  border-radius: var(--nca-r-xl) var(--nca-r-xl) 0 0;
+  pointer-events: none;
+}
+
+/* spinning electric ring border */
+.nca-cert-card::before {
+  content: '';
+  position: absolute; inset: -1px;
+  border-radius: var(--nca-r-xl);
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--nca-glass), var(--nca-glass)) padding-box,
+    conic-gradient(
+      from 0deg,
+      transparent 0%,  transparent 20%,
+      rgba(0,200,255,.65) 36%, rgba(255,255,255,.95) 50%, rgba(0,200,255,.65) 64%,
+      transparent 80%, transparent 100%
+    ) border-box;
+  animation: ncaRingCW 4s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(26,140,255,.7)) drop-shadow(0 0 25px rgba(26,140,255,.35));
+  pointer-events: none;
+}
+
+/* ── cert card top bar ── */
+.nca-cert-top {
+  display: flex; align-items: center; gap: 1.2rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(26,140,255,.14);
+  margin-bottom: 1.6rem;
+}
+
+.nca-shield {
+  width: 64px; height: 64px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  background: linear-gradient(135deg, rgba(26,140,255,.22), rgba(0,200,255,.1));
+  border: 1.5px solid var(--nca-bd-hi);
+  border-radius: 16px;
+  animation: ncaShieldPulse 3s ease-in-out infinite, ncaFloatUp 4s ease-in-out infinite;
+}
+
+.nca-cert-top-text h3 {
+  font-size: 1.05rem; font-weight: 800; color: var(--nca-white);
+  letter-spacing: -.01em; margin-bottom: .2rem;
+}
+.nca-cert-top-text span {
+  font-size: .72rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--nca-blue-hi);
+}
+
+/* ── official stamp ── */
+.nca-stamp {
+  position: absolute; top: 1.6rem; right: 1.8rem;
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--nca-gold);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(245,200,66,.08);
+  box-shadow: 0 0 0 1px rgba(245,200,66,.3), inset 0 0 12px rgba(245,200,66,.08);
+  animation: ncaStamp .6s .4s cubic-bezier(.4,0,.2,1) both;
+  text-align: center; padding: 4px;
+}
+
+.nca-stamp-text {
+  font-size: .44rem; font-weight: 900; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--nca-gold); line-height: 1.3;
+}
+.nca-stamp-year {
+  font-size: .68rem; font-weight: 900; color: var(--nca-gold); line-height: 1;
+}
+
+/* ── data rows ── */
+.nca-data-rows {
+  display: flex; flex-direction: column; gap: .85rem;
+}
+
+.nca-row {
+  display: flex; align-items: flex-start; gap: .9rem;
+  padding: .85rem 1rem;
+  background: rgba(26,140,255,.05);
+  border: 1px solid rgba(26,140,255,.1);
+  border-radius: var(--nca-r);
+  position: relative; overflow: hidden;
+  transition: background .2s, border-color .2s;
+}
+.nca-row:hover {
+  background: rgba(26,140,255,.1);
+  border-color: var(--nca-bd);
+}
+
+/* left accent line */
+.nca-row::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--nca-blue-hi), transparent);
+  border-radius: 2px;
+}
+
+.nca-row-icon {
+  font-size: 1rem; flex-shrink: 0; margin-top: .05rem; line-height: 1;
+}
+.nca-row-body {
+  flex: 1; min-width: 0;
+}
+.nca-row-label {
+  display: block; font-size: .66rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--nca-txt3); margin-bottom: .22rem;
+}
+.nca-row-value {
+  font-size: .88rem; font-weight: 600; color: var(--nca-txt);
+  word-break: break-word; line-height: 1.45;
+}
+.nca-row-value.blue  { color: var(--nca-blue-hi); }
+.nca-row-value.gold  { color: var(--nca-gold);     font-weight: 800; }
+.nca-row-value.green { color: var(--nca-green);    font-weight: 700; }
+
+/* ── status badge ── */
+.nca-status-badge {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .25rem .7rem;
+  background: rgba(34,212,106,.1);
+  border: 1px solid rgba(34,212,106,.3);
+  border-radius: 99px;
+  font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--nca-green);
+}
+.nca-status-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--nca-green);
+  box-shadow: 0 0 5px var(--nca-green);
+  animation: ncaBlink 1.8s ease-in-out infinite;
+}
+
+/* ── serial + QR ── */
+.nca-serial {
+  margin-top: 1.6rem; padding-top: 1.2rem;
+  border-top: 1px solid rgba(26,140,255,.1);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+}
+.nca-serial-label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--nca-txt3);
+}
+.nca-serial-num {
+  font-size: .8rem; font-weight: 800; letter-spacing: .1em;
+  color: var(--nca-blue-hi);
+  font-variant-numeric: tabular-nums;
+}
+
+.nca-qr {
+  width: 52px; height: 52px; flex-shrink: 0;
+  background:
+    repeating-conic-gradient(rgba(26,140,255,.35) 0% 25%, transparent 0% 50%) 0 0 / 8px 8px;
+  border: 1px solid var(--nca-bd);
+  border-radius: 6px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   DETAILS PANEL (right column)
+───────────────────────────────────────────────────────────────────────── */
+.nca-details-panel {
+  display: flex; flex-direction: column; gap: 1.5rem;
+  animation: ncaReveal .8s .2s cubic-bezier(.4,0,.2,1) both;
+}
+
+/* ── scope card & obligations card — shared glass base ── */
+.nca-scope-card,
+.nca-oblig-card {
+  background: var(--nca-glass);
+  border: 1px solid var(--nca-bd);
+  border-radius: var(--nca-r-lg);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  padding: 1.8rem;
+  position: relative; overflow: hidden;
+}
+
+/* liquid glass sheen */
+.nca-scope-card::after,
+.nca-oblig-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.22) 50%, transparent);
+  pointer-events: none;
+}
+
+/* scope card hover states */
+.nca-scope-card {
+  transition: border-color .3s, box-shadow .3s;
+}
+.nca-scope-card:hover {
+  border-color: var(--nca-bd-hi);
+  box-shadow: 0 0 40px rgba(26,140,255,.15);
+}
+
+/* electric ring appears on hover — scope card */
+.nca-scope-card::before {
+  content: '';
+  position: absolute; inset: -1px; border-radius: var(--nca-r-lg);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--nca-glass), var(--nca-glass)) padding-box,
+    conic-gradient(
+      from 0deg,
+      transparent 0%,  transparent 28%,
+      rgba(0,200,255,.6) 44%, #fff 50%, rgba(0,200,255,.6) 56%,
+      transparent 72%, transparent 100%
+    ) border-box;
+  animation: ncaRingCW 5s linear infinite;
+  opacity: 0; transition: opacity .4s; pointer-events: none;
+}
+.nca-scope-card:hover::before { opacity: 1; }
+
+/* ── card title row ── */
+.nca-card-title {
+  display: flex; align-items: center; gap: .75rem; margin-bottom: 1.2rem;
+}
+.nca-card-icon {
+  font-size: 1.2rem;
+  animation: ncaFloatUp 4s ease-in-out infinite;
+}
+.nca-card-title h4 {
+  font-size: .88rem; font-weight: 800; color: var(--nca-white); letter-spacing: -.01em;
+}
+.nca-card-title small {
+  font-size: .68rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--nca-blue-hi); margin-left: auto;
+}
+
+/* ── scope list ── */
+.nca-scope-list {
+  display: flex; flex-direction: column; gap: .55rem;
+}
+.nca-scope-item {
+  display: flex; align-items: center; gap: .7rem;
+  font-size: .82rem; color: var(--nca-txt2); line-height: 1.5;
+}
+.nca-scope-item::before {
+  content: '';
+  flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--nca-blue-hi), var(--nca-blue-vv));
+  box-shadow: 0 0 6px rgba(26,140,255,.5);
+}
+.nca-scope-item strong {
+  color: var(--nca-txt); font-weight: 600;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CONTRACTOR GRADES GRID
+───────────────────────────────────────────────────────────────────────── */
+.nca-grades-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.nca-grade-chip {
+  background: var(--nca-glass);
+  border: 1px solid var(--nca-bd);
+  border-radius: var(--nca-r);
+  padding: 1.1rem 1.2rem;
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  position: relative; overflow: hidden;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+  cursor: default;
+}
+.nca-grade-chip:hover {
+  transform: translateY(-3px);
+  border-color: var(--nca-bd-hi);
+  box-shadow: 0 0 28px rgba(26,140,255,.18);
+}
+
+/* electric ring on hover */
+.nca-grade-chip::before {
+  content: '';
+  position: absolute; inset: -1px; border-radius: var(--nca-r);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--nca-glass), var(--nca-glass)) padding-box,
+    conic-gradient(
+      from 0deg,
+      transparent 0%,  transparent 30%,
+      rgba(0,200,255,.55) 47%, #fff 50%, rgba(0,200,255,.55) 53%,
+      transparent 70%, transparent 100%
+    ) border-box;
+  animation: ncaRingCW 4.5s linear infinite;
+  opacity: 0; transition: opacity .4s; pointer-events: none;
+}
+.nca-grade-chip:hover::before { opacity: 1; }
+
+/* liquid sheen */
+.nca-grade-chip::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.2) 50%, transparent);
+  pointer-events: none;
+}
+
+.nca-grade-num {
+  font-size: 1.6rem; font-weight: 900; line-height: 1; margin-bottom: .2rem;
+  background: linear-gradient(135deg, var(--nca-blue-hi) 0%, var(--nca-blue-vv) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nca-grade-category {
+  font-size: .75rem; font-weight: 700; color: var(--nca-white);
+  letter-spacing: -.01em; margin-bottom: .15rem;
+}
+.nca-grade-desc {
+  font-size: .68rem; color: var(--nca-txt2); line-height: 1.45;
+}
+.nca-grade-limit {
+  font-size: .7rem; font-weight: 700; color: var(--nca-gold);
+  margin-top: .4rem; letter-spacing: .04em;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   COMPLIANCE OBLIGATIONS GRID
+───────────────────────────────────────────────────────────────────────── */
+.nca-oblig-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: .8rem; margin-top: 1rem;
+}
+
+.nca-oblig-item {
+  display: flex; align-items: flex-start; gap: .7rem;
+  padding: .75rem .9rem;
+  background: rgba(26,140,255,.04);
+  border: 1px solid rgba(26,140,255,.1);
+  border-radius: 10px;
+  font-size: .78rem; color: var(--nca-txt2); line-height: 1.5;
+  transition: background .2s, border-color .2s;
+}
+.nca-oblig-item:hover {
+  background: rgba(26,140,255,.1);
+  border-color: var(--nca-bd);
+}
+/* green tick */
+.nca-oblig-item::before {
+  content: '✓';
+  flex-shrink: 0; font-size: .7rem; font-weight: 900;
+  color: var(--nca-green);
+  width: 16px; height: 16px; border-radius: 50%;
+  background: rgba(34,212,106,.12);
+  border: 1px solid rgba(34,212,106,.25);
+  display: flex; align-items: center; justify-content: center;
+  margin-top: .05rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   BOTTOM STRIP
+───────────────────────────────────────────────────────────────────────── */
+.nca-bottom-strip {
+  margin-top: 2.8rem;
+  padding: 2rem 2.4rem;
+  background: var(--nca-glass);
+  border: 1px solid var(--nca-bd);
+  border-radius: var(--nca-r-xl);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 2rem;
+  animation: ncaReveal .8s .35s cubic-bezier(.4,0,.2,1) both;
+}
+
+/* spinning ring border */
+.nca-bottom-strip::before {
+  content: '';
+  position: absolute; inset: -1px; border-radius: var(--nca-r-xl);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--nca-glass), var(--nca-glass)) padding-box,
+    conic-gradient(
+      from 0deg,
+      transparent 0%,  transparent 20%,
+      rgba(0,200,255,.5) 36%, rgba(255,255,255,.85) 50%, rgba(0,200,255,.5) 64%,
+      transparent 80%, transparent 100%
+    ) border-box;
+  animation: ncaRingCW 9s linear infinite;
+  pointer-events: none;
+}
+
+/* liquid sheen */
+.nca-bottom-strip::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.25) 40%, rgba(26,140,255,.3) 60%, transparent);
+  pointer-events: none;
+}
+
+.nca-verification {
+  display: flex; flex-direction: column; gap: .3rem;
+}
+.nca-verification-label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--nca-txt3);
+}
+.nca-verification-url {
+  font-size: .88rem; font-weight: 600; color: var(--nca-blue-hi);
+  letter-spacing: .02em;
+}
+
+.nca-strip-stats {
+  display: flex; gap: 3rem; flex-wrap: wrap;
+}
+.nca-strip-stat {
+  text-align: center;
+}
+.nca-strip-stat strong {
+  display: block; font-size: 1.5rem; font-weight: 900; line-height: 1;
+  background: linear-gradient(135deg, var(--nca-white) 30%, var(--nca-blue-hi) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nca-strip-stat small {
+  font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--nca-txt3);
+  display: block; margin-top: .3rem;
+}
+
+.nca-verify-btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .7rem 1.6rem;
+  background: linear-gradient(135deg, var(--nca-blue) 0%, #005fcc 100%);
+  color: #fff; font-size: .82rem; font-weight: 700; letter-spacing: .05em;
+  text-transform: uppercase; border-radius: 10px; border: none;
+  font-family: inherit; cursor: pointer;
+  box-shadow: 0 0 24px rgba(26,140,255,.45), 0 4px 16px rgba(0,0,0,.5);
+  transition: transform .2s, box-shadow .2s;
+  position: relative; z-index: 1;
+}
+.nca-verify-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 44px rgba(26,140,255,.7), 0 6px 24px rgba(0,0,0,.6);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .nca-grid-layout        { grid-template-columns: 1fr; }
+  .nca-stamp              { top: 1.2rem; right: 1.2rem; }
+  .nca-ring-1, .nca-ring-2 { left: -350px; }
+  .nca-ring-3             { right: -350px; }
+}
+
+@media (max-width: 640px) {
+  .nca-grades-grid        { grid-template-columns: 1fr; }
+  .nca-oblig-grid         { grid-template-columns: 1fr; }
+  .nca-bottom-strip       { flex-direction: column; align-items: flex-start; }
+  .nca-strip-stats        { gap: 1.5rem; }
+  .nca-ring-1, .nca-ring-2, .nca-ring-3 { display: none; }
+}
 /* ══════════════════════════════════════════════════════════
    APPLY RING CARD TO ALL HOVERABLE CARDS
 ══════════════════════════════════════════════════════════ */
