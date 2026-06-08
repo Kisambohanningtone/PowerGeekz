@@ -8,6 +8,7 @@ Requirements:
 .env file:
     MAIL_SERVER    = smtp.gmail.com
     MAIL_PORT      = 587
+    app.config["MAIL_USE_TLS"] = True
     MAIL_USERNAME  = powergeekzengineeringltd@gmail.com
     MAIL_PASSWORD  = zfdrphwhfdrhcbqv
     MAIL_RECIPIENT = powergeekzengineeringltd@gmail.com
